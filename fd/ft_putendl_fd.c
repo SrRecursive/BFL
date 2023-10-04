@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 11:27:01 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/10/04 11:53:32 by ribana-b         ###   ########.fr       */
+/*   Created: 2023/10/04 13:31:08 by ribana-b          #+#    #+#             */
+/*   Updated: 2023/10/04 13:36:03 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/bfl.h"
 
-void	ft_memset(void *ptr, int character, unsigned int bytes)
+int	ft_putendl_fd(const char *str, int fd)
 {
-	char	*newptr;
+	int	byteswritten;
 
-	newptr = (char *)ptr;
-	while (bytes--)
-		newptr[bytes] = character;
-	return ;
+	if (str == NULL || fd < 0)
+		return (-1);
+	byteswritten = ft_putstr_fd(str, fd);
+	if (byteswritten < 0)
+		return (-1);
+	byteswritten = ft_putchar_fd('\n', fd);
+	if (byteswritten < 0)
+		return (-1);
+	return (byteswritten);
 }

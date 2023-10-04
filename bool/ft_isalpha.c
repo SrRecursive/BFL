@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 11:27:01 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/10/04 11:53:32 by ribana-b         ###   ########.fr       */
+/*   Created: 2023/10/04 11:54:46 by ribana-b          #+#    #+#             */
+/*   Updated: 2023/10/04 12:05:47 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/bfl.h"
 
-void	ft_memset(void *ptr, int character, unsigned int bytes)
+unsigned int	ft_isalpha(int character)
 {
-	char	*newptr;
-
-	newptr = (char *)ptr;
-	while (bytes--)
-		newptr[bytes] = character;
-	return ;
+	return (ft_isupper(character) && ft_islower(character));
 }

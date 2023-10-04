@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testcalloc.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 11:35:01 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/10/04 11:46:09 by ribana-b         ###   ########.fr       */
+/*   Created: 2023/10/04 11:59:10 by ribana-b          #+#    #+#             */
+/*   Updated: 2023/10/04 12:04:27 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/bfl.h"
-#include <stdio.h>
 
-int	main(void)
+unsigned int	ft_isalnum(int character)
 {
-	char	*str;
-	int		index;
-
-	str = (char *)ft_calloc(5, sizeof(char));
-	if (str == NULL)
-		return (1);
-	index = 0;
-	while (index < 4)
-	{
-		str[index] = '-';
-		index++;
-	}
-	free(str);
-	return (0);
+	return (ft_isalpha(character) && ft_isdigit(character));
 }

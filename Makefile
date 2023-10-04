@@ -46,23 +46,46 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 # <-- Directories --> #
-STRING_DIR = string/
+BOOL_DIR = bool/
+CHAR_DIR = char/
+FD_DIR = fd/
 MEMORY_DIR = memory/
+STRING_DIR = string/
 
 # <-- Files --> #
-STRING_FILES = ft_strlen.c \
-				ft_strjoin.c
+BOOL_FILES = ft_isalnum.c \
+			ft_isalpha.c \
+			ft_isascii.c \
+			ft_isblank.c \
+			ft_isdigit.c \
+			ft_islower.c \
+			ft_isprint.c \
+			ft_isupper.c \
+			ft_isxdigit.c
+CHAR_FILES = ft_tolower.c \
+			ft_toupper.c
+FD_FILES = ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_putendl_fd.c
 MEMORY_FILES = ft_memset.c \
-				ft_bzero.c \
-				ft_calloc.c
+			ft_bzero.c \
+			ft_calloc.c
+STRING_FILES = ft_strlen.c \
+			ft_strjoin.c
 
 # <-- Directories + Files --> #
-STRING = $(addprefix $(STRING_DIR), $(STRING_FILES))
+BOOL = $(addprefix $(BOOL_DIR), $(BOOL_FILES))
+CHAR = $(addprefix $(CHAR_DIR), $(CHAR_FILES))
+FD = $(addprefix $(FD_DIR), $(FD_FILES))
 MEMORY = $(addprefix $(MEMORY_DIR), $(MEMORY_FILES))
+STRING = $(addprefix $(STRING_DIR), $(STRING_FILES))
 
 # <-- Objects --> #
-OBJ_STRING = $(STRING:.c=.o)
+OBJ_BOOL = $(BOOL:.c=.o)
+OBJ_CHAR = $(CHAR:.c=.o)
+OBJ_FD = $(FD:.c=.o)
 OBJ_MEMORY = $(MEMORY:.c=.o)
+OBJ_STRING = $(STRING:.c=.o)
 
 # ========================================================================== #
 
@@ -70,9 +93,9 @@ OBJ_MEMORY = $(MEMORY:.c=.o)
 all: $(NAME)
 
 # <--Library Creation-->#
-$(NAME): $(OBJ_STRING) $(OBJ_MEMORY)
+$(NAME): $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
 	@echo "$(B_GREEN)$(T_YELLOW)$(BOLD)Objects created successfully$(RESET)"
-	ar rcs $(NAME) $(OBJ_STRING) $(OBJ_MEMORY)
+	ar rcs $(NAME) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
 	@echo "$(B_GREEN)$(T_YELLOW)$(BOLD)Library created successfully$(RESET)"
 
 # <-- Objects Creation --> #
@@ -81,7 +104,7 @@ $(NAME): $(OBJ_STRING) $(OBJ_MEMORY)
 
 # <-- Objects Destruction --> #
 clean:
-	$(RM) $(OBJ_STRING) $(OBJ_MEMORY)
+	$(RM) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
 	@echo "$(B_RED)$(T_YELLOW)$(BOLD)Source Object destroyed successfully$(RESET)"
 
 # <- Clean Execution + Library Destruction -> #

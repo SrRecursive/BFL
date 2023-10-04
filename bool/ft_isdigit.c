@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 11:27:01 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/10/04 11:53:32 by ribana-b         ###   ########.fr       */
+/*   Created: 2023/10/04 11:56:22 by ribana-b          #+#    #+#             */
+/*   Updated: 2023/10/04 11:58:41 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/bfl.h"
 
-void	ft_memset(void *ptr, int character, unsigned int bytes)
+unsigned int	ft_isdigit(int character)
 {
-	char	*newptr;
-
-	newptr = (char *)ptr;
-	while (bytes--)
-		newptr[bytes] = character;
-	return ;
+	return (character >= '0' && character <= '9');
 }
