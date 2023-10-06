@@ -1,11 +1,19 @@
 # BFL
 
+## Description
+
 Big Function Library is a UNIX collection of functions made from scratch.
 
 ## Requirements
 
 - Make
 - GCC
+
+**NOTE**: If you don't have any of these run these commands
+```Shell
+sudo apt update
+sudo apt install make build-essential
+```
 
 ## Usage
 

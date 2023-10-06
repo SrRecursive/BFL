@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:11:05 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/10/04 12:11:30 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/10/06 23:07:52 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int	ft_toupper(int character)
 {
-	return (character - 32);
+	if (character >= 'a' && character <= 'z')
+		return (character - 32);
+	return (character);
 }
