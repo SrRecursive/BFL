@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 11:17:59 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/15 14:59:35 by ribana-b         ###   ########.fr       */
+/*   Created: 2023/11/15 15:45:26 by ribana-b          #+#    #+#             */
+/*   Updated: 2023/11/15 16:03:38 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/bfl.h"
 
-void	*ft_calloc(size_t bytes, size_t sizetype)
+void	*ft_memmove(void *str, const void *str2, size_t bytes)
 {
-	void	*ptr;
+	char	*temp;
+	char	*temp2;
 
-	ptr = malloc(bytes * sizetype);
-	if (ptr == NULL)
+	if (!str || !str2)
 		return (NULL);
-	ft_bzero(ptr, bytes * sizetype);
-	return (ptr);
+	temp = (char *)str;
+	temp2 = (char *)str2;
+	if (str > str2 || str < (str2 + bytes))
+		while (bytes--)
+			str[bytes] = str2[bytes];
+	else
+		ft_memcpy(str, str2, bytes);
+	return (str);
 }

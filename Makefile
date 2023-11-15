@@ -53,25 +53,33 @@ MEMORY_DIR = memory/
 STRING_DIR = string/
 
 # <-- Files --> #
-BOOL_FILES = ft_isalnum.c \
-			ft_isalpha.c \
-			ft_isascii.c \
-			ft_isblank.c \
-			ft_isdigit.c \
-			ft_islower.c \
-			ft_isprint.c \
-			ft_isupper.c \
-			ft_isxdigit.c
-CHAR_FILES = ft_tolower.c \
-			ft_toupper.c
-FD_FILES = ft_putchar_fd.c \
-			ft_putstr_fd.c \
-			ft_putendl_fd.c
-MEMORY_FILES = ft_memset.c \
-			ft_bzero.c \
-			ft_calloc.c
-STRING_FILES = ft_strlen.c \
-			ft_strjoin.c
+BOOL_FILES		=	ft_isalnum.c \
+					ft_isalpha.c \
+					ft_isascii.c \
+					ft_isblank.c \
+					ft_isdigit.c \
+					ft_islower.c \
+					ft_isprint.c \
+					ft_isupper.c \
+					ft_isxdigit.c
+
+CHAR_FILES		=	ft_tolower.c \
+					ft_toupper.c
+
+FD_FILES		=	ft_putchar_fd.c \
+					ft_putstr_fd.c \
+					ft_putendl_fd.c
+
+MEMORY_FILES	=	ft_memset.c \
+					ft_bzero.c \
+					ft_calloc.c
+
+STRING_FILES	=	ft_strlen.c \
+					ft_strjoin.c \
+					ft_strncmp.c \
+					ft_strdup.c \
+					ft_atoi.c \
+					ft_atol.c
 
 # <-- Directories + Files --> #
 BOOL = $(addprefix $(BOOL_DIR), $(BOOL_FILES))
@@ -94,9 +102,9 @@ all: $(NAME)
 
 # <--Library Creation-->#
 $(NAME): $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
-	@echo "$(B_GREEN)$(T_YELLOW)$(BOLD)Objects created successfully$(RESET)"
+	@echo "$(T_YELLOW)$(BOLD)Objects created successfully$(RESET)"
 	ar rcs $(NAME) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
-	@echo "$(B_GREEN)$(T_YELLOW)$(BOLD)Library created successfully$(RESET)"
+	@echo "$(T_GREEN)$(BOLD)$(NAME) created successfully$(RESET)"
 
 # <-- Objects Creation --> #
 %.o: %.c
@@ -105,12 +113,12 @@ $(NAME): $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
 # <-- Objects Destruction --> #
 clean:
 	$(RM) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
-	@echo "$(B_RED)$(T_YELLOW)$(BOLD)Source Object destroyed successfully$(RESET)"
+	@echo "$(T_RED)$(BOLD)Source Object destroyed successfully$(RESET)"
 
-# <- Clean Execution + Library Destruction -> #
+# <- Clean Execution + bfl.a Destruction -> #
 fclean: clean
 	$(RM) $(NAME)
-	@echo "$(B_RED)$(T_YELLOW)$(BOLD)Library destroyed successfully$(RESET)"
+	@echo "$(T_RED)$(BOLD)$(NAME) destroyed successfully$(RESET)"
 
 # <- Fclean Execution + All Execution -> #
 re: fclean all

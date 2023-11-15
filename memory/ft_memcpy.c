@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 11:21:38 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/15 15:01:37 by ribana-b         ###   ########.fr       */
+/*   Created: 2023/11/15 15:28:02 by ribana-b          #+#    #+#             */
+/*   Updated: 2023/11/15 15:39:31 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/bfl.h"
 
-void	ft_bzero(void *ptr, size_t bytes)
+void	*ft_memcpy(void *str, const void *str2, size_t bytes)
 {
-	if (!ptr)
-		return ;
-	ft_memset(ptr, '\0', bytes);
-	return ;
+	char	*temp;
+	char	*temp2;
+
+	if (!str || !str2)
+		return (NULL);
+	temp = (char *)str;
+	temp2 = (char *)str2;
+	while (bytes--)
+		temp[bytes] = temp2[bytes];
+	return (str);
 }
