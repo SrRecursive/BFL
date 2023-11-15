@@ -77,6 +77,7 @@ MEMORY_FILES	=	ft_memset.c \
 STRING_FILES	=	ft_strlen.c \
 					ft_strjoin.c \
 					ft_strncmp.c \
+					ft_strdup.c \
 					ft_atoi.c \
 					ft_atol.c
 
