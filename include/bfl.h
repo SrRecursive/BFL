@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/15 16:54:29 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:58:53 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -469,6 +469,82 @@ char			*ft_strdup(const char *str);
  * @retval - 0 if either str or str2 is NULL.
 */
 size_t			ft_strlcpy(char *str, const char *str2, size_t bytes);
+
+/**
+ * @brief Concatenates two strings with a specified buffer size.
+ *
+ * @details This function appends the contents of the null -terminated
+ * string str2 to the end of the null-terminated string str, ensuring
+ * that the total lenght does not exceed the given buffer size. The
+ * resulting string in str is null-terminated.
+ *
+ * @param str A pointer to the destination null-terminated string.
+ * @param str2 A pointer to the source null-terminated string to
+ * be appennded.
+ * @param bytes The size of the buffer, indicating the maximum
+ * allowed lenght for the resulting string in str.
+ *
+ * @retval - The total lenght of the concatenated strings (excluding
+ * the null terminator) if the operation is successful.
+ * @retval - 0 if either str or str is NULL.
+*/
+size_t			ft_strlcat(char *str, const char *str2, size_t bytes);
+
+/**
+ * @brief Locates the first occurrence of a substring within a given
+ * number of bytes.
+ *
+ * @details This function searches for the first occurrence of the
+ * substring str2 within the first bytes characters of the string
+ * str. The comparison is case-sensitive.
+ *
+ * @param str The string to be searched.
+ * @param str2 The substring to search for.
+ * @param bytes The maximum number of bytes to search in the string.
+ *
+ * @retval - A pointer to the first occurrence of str2 in str within
+ * the specified number of bytes.
+ * @retval - NULL if str or str2 is NULL or if the substring is not
+ * found.
+ *
+ * @note If str2 is an empty string, the function returns a pointer
+ * to str.
+*/
+char			*ft_strnstr(const char *str, const char *str2, size_t bytes);
+
+/**
+ * @brief Locates the first occurrence of a character in a string.
+ *
+ * @details Locates the first occurrence of the specified character
+ * (converted to unsigned char) in the given string. The search
+ * includes the null terminating character.
+ *
+ * @param str The string to be searched.
+ * @param character The character to be located.
+ *
+ * @retval - A pointer to the located character in the string.
+ * @retval - NULL if the character is not found or if the input
+ * string is NULL.
+ *
+*/
+char	*ft_strchr(const char *str, int character);
+
+/**
+ * @brief Locates the last occurrence of a character in a string.
+ *
+ * @details This function searches the string pointed to by str for
+ * the last occurrence of the specified character (converted to an
+ * unsigned char) within the string, including the terminating
+ * null character.
+ *
+ * @param str A pointer to the null-terminated string to be searched.
+ * @param character The character to be located (as an integer).
+ *
+ * @retval - A pointer to the last occurrence of the character in
+ * the string.
+ * @retval - NULL if the character is not found or if str is NULL.
+*/
+char	*ft_strrchr(const char *str, int character);
 /* ==========================================================================*/
 
 #endif
