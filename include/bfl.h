@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/10/06 23:40:06 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:00:27 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -302,6 +302,65 @@ unsigned int	ft_strlen(const char *str);
  * @retval - NULL if fails allocating memory for the new string.
 */
 char			*ft_strjoin(const char *str, const char *str2);
+
+/**
+ *  @brief Compare the first 'bytes' characters of two strings.
+ *
+ *  This function compares the first bytes characters of the strings
+ *  str and str2. The comparison is case-sensitive, and the result
+ *  is based on the difference between the ASCII values of the characters
+ *  at the corresponding positions in the strings.
+ *
+ *  @param str Pointer to the first string to be compared.
+ *  @param str2 Pointer to the second string to be compared.
+ *  @param bytes Number of characters to compare.
+ *
+ *  @return  An integer greater than, equal to, or less than 0 if the
+ *  first bytes characters of str2, respectively.
+ *
+ *  @note If either str or str2 is a null pointer, the function
+ *  returns -1.
+ *
+*/
+int				ft_strncmp(const char *str, const char *str2, size_t bytes);
+
+/**
+ *  @brief Convert a string to an integer.
+ *
+ *  This function converts the initial portion of the string str to its
+ *  integer representation. The conversion stops when the first non-digit
+ *  character is encountered. Leading white-space characters are skipped,
+ *  and the sign of the number is determined by an optional '+' or '-'
+ *  prefix.
+ *
+ *  @param str Pointer to the string to be converted.
+ *
+ *  @return The converted integer value.
+ *
+ *  @note If the string is "-2147483648", the function return -2147483648.
+ *  @note If the string is not a valid integer representation, the behavior
+ *  is undefined.
+*/
+int				ft_atoi(const char *str);
+
+/**
+ *  @brief Convert a string to an long integer.
+ *  
+ *  This function converts the initial portion of the string str to its
+ *  integer representation. The conversion stops when the first non-digit
+ *  character is encountered. Leading white-space characters are skipped,
+ *  and the sign of the number is determined by an optional '+' or '-'
+ *  prefix.
+ *
+ *  @param str Pointer to the string to be converted
+ *
+ *  @note If the string is "-9223372036854775808", the function returns
+ *  -9223372036854775807LL - 1 to avoid an unsigned integer constant
+ *  warning.
+ *  @note If the string is not a valid long integer representation, the
+ *  behavior is undefined.
+*/
+long int		ft_atol(const char *str);
 /* ==========================================================================*/
 
 #endif
