@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/15 17:58:53 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/11/16 10:41:38 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,7 +245,7 @@ int				ft_putendl_fd(const char *str, int fd);
  *
  * @note If ptr is NULL doesn't do anything.
 */
-void			ft_memset(void *ptr, int character, unsigned int bytes);
+void			ft_memset(void *ptr, int character, size_t bytes);
 
 /**
  * @brief Sets the pointer with null character an n-bytes amount.

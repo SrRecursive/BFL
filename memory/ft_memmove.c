@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:45:26 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/15 16:03:38 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/11/16 10:40:45 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	*ft_memmove(void *str, const void *str2, size_t bytes)
 		return (NULL);
 	temp = (char *)str;
 	temp2 = (char *)str2;
-	if (str > str2 || str < (str2 + bytes))
+	if (temp > temp2 || temp < (temp2 + bytes))
 		while (bytes--)
-			str[bytes] = str2[bytes];
+			temp[bytes] = temp2[bytes];
 	else
 		ft_memcpy(str, str2, bytes);
 	return (str);
