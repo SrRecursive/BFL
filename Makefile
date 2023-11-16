@@ -67,8 +67,9 @@ CHAR_FILES		=	ft_tolower.c \
 					ft_toupper.c
 
 FD_FILES		=	ft_putchar_fd.c \
-					ft_putstr_fd.c \
-					ft_putendl_fd.c
+					ft_putendl_fd.c \
+					ft_putnbr_fd.c \
+					ft_putstr_fd.c
 
 MEMORY_FILES	=	ft_bzero.c \
 					ft_calloc.c \
@@ -81,16 +82,19 @@ MEMORY_FILES	=	ft_bzero.c \
 
 STRING_FILES	=	ft_atoi.c \
 					ft_atol.c \
+					ft_itoa.c \
 					ft_strchr.c \
 					ft_strdup.c \
 					ft_strjoin.c \
 					ft_strlcat.c \
 					ft_strlcpy.c \
 					ft_strlen.c \
+					ft_strmapi.c \
 					ft_strncmp.c \
 					ft_strncmp.c \
 					ft_strnstr.c \
-					ft_strrchr.c
+					ft_strrchr.c \
+					ft_substr.c
 
 # <-- Directories + Files --> #
 BOOL = $(addprefix $(BOOL_DIR), $(BOOL_FILES))

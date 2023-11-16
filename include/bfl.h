@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/16 10:41:38 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/11/16 17:11:08 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,6 +228,20 @@ int				ft_putstr_fd(const char *str, int fd);
  * @retval - -1 if there's an error writing the string.
 */
 int				ft_putendl_fd(const char *str, int fd);
+
+/**
+ * @brief Write an integer to a file descriptor.
+ *
+ * @details This function writes an integer in a given file descriptor.
+ *
+ * @param number The integer to be written.
+ * @param fd The file descriptor where the integer will be written.
+ *
+ * @retval - The number of bytes written on success.
+ * @retval - -1 if the file descriptor is invalid or if there are
+ * memory allocation or writing errors.
+*/
+int				ft_putnbr_fd(int number, int fd);
 /* ==========================================================================*/
 
 /* ==========================================================================*/
@@ -273,6 +287,8 @@ void			ft_bzero(void *ptr, size_t bytes);
  * @retval - A pointer with memory allocated and set with null characters if
  * successful.
  * @retval - A NULL pointer if the allocation fails.
+ *
+ * @note The caller is responsible for freeing the memory allocated.
 */
 void			*ft_calloc(size_t bytes, size_t sizetype);
 
@@ -378,59 +394,59 @@ size_t			ft_strlen(const char *str);
 char			*ft_strjoin(const char *str, const char *str2);
 
 /**
- *  @brief Compare the first 'bytes' characters of two strings.
+ * @brief Compare the first 'bytes' characters of two strings.
  *
- *  @details This function compares the first bytes characters of the
- *  strings str and str2. The comparison is case-sensitive, and the result
- *  is based on the difference between the ASCII values of the characters
- *  at the corresponding positions in the strings.
+ * @details This function compares the first bytes characters of the
+ * strings str and str2. The comparison is case-sensitive, and the result
+ * is based on the difference between the ASCII values of the characters
+ * at the corresponding positions in the strings.
  *
- *  @param str Pointer to the first string to be compared.
- *  @param str2 Pointer to the second string to be compared.
- *  @param bytes Number of characters to compare.
+ * @param str Pointer to the first string to be compared.
+ * @param str2 Pointer to the second string to be compared.
+ * @param bytes Number of characters to compare.
  *
- *  @retval - An integer greater than, equal to, or less than 0 if the
- *  first bytes characters of str2, respectively.
- *  @retval - -1 if either str or str2 is NULL.
+ * @retval - An integer greater than, equal to, or less than 0 if the
+ * first bytes characters of str2, respectively.
+ * @retval - -1 if either str or str2 is NULL.
 */
 int				ft_strncmp(const char *str, const char *str2, size_t bytes);
 
 /**
- *  @brief Convert a string to an integer.
+ * @brief Convert a string to an integer.
  *
- *  @details This function converts the initial portion of the string str
- *  to its integer representation. The conversion stops when the first
- *  non-digit character is encountered. Leading white-space characters
- *  are skipped, and the sign of the number is determined by an optional '+'
- *  or '-' prefix.
+ * @details This function converts the initial portion of the string str
+ * to its integer representation. The conversion stops when the first
+ * non-digit character is encountered. Leading white-space characters
+ * are skipped, and the sign of the number is determined by an optional '+'
+ * or '-' prefix.
  *
- *  @param str Pointer to the string to be converted.
+ * @param str Pointer to the string to be converted.
  *
- *  @retval - The converted integer value.
+ * @retval - The converted integer value.
  *
- *  @note If the string is not a valid integer representation, the behavior
- *  is undefined.
+ * @note If the string is not a valid integer representation, the behavior
+ * is undefined.
 */
 int				ft_atoi(const char *str);
 
 /**
- *  @brief Convert a string to an long integer.
+ * @brief Convert a string to an long integer.
  *  
- *  @details This function converts the initial portion of the string str
- *  to its integer representation. The conversion stops when the first
- *  non-digit character is encountered. Leading white-space characters
- *  are skipped, and the sign of the number is determined by an optional '+'
- *  or '-' prefix.
+ * @details This function converts the initial portion of the string str
+ * to its integer representation. The conversion stops when the first
+ * non-digit character is encountered. Leading white-space characters
+ * are skipped, and the sign of the number is determined by an optional '+'
+ * or '-' prefix.
  *
- *  @param str Pointer to the string to be converted
+ * @param str Pointer to the string to be converted
  *
- *  @retval - The converted long integer value.
+ * @retval - The converted long integer value.
  *
- *  @note If the string is "-9223372036854775808", the function returns
- *  -9223372036854775807LL - 1 to avoid an unsigned integer constant
- *  warning.
- *  @note If the string is not a valid long integer representation, the
- *  behavior is undefined.
+ * @note If the string is "-9223372036854775808", the function returns
+ * -9223372036854775807LL - 1 to avoid an unsigned integer constant
+ * warning.
+ * @note If the string is not a valid long integer representation, the
+ * behavior is undefined.
 */
 long int		ft_atol(const char *str);
 
@@ -445,6 +461,9 @@ long int		ft_atol(const char *str);
  * @retval - A pointer to the newly allocated string with the same content
  * as str.
  * @retval - NULL if str is NULL or if memory allocation fails.
+ *
+ * @note The duplicated string is dynamically allocated and should be
+ * freed by the caller when no longer needed.
 */
 char			*ft_strdup(const char *str);
 
@@ -527,7 +546,7 @@ char			*ft_strnstr(const char *str, const char *str2, size_t bytes);
  * string is NULL.
  *
 */
-char	*ft_strchr(const char *str, int character);
+char			*ft_strchr(const char *str, int character);
 
 /**
  * @brief Locates the last occurrence of a character in a string.
@@ -544,7 +563,101 @@ char	*ft_strchr(const char *str, int character);
  * the string.
  * @retval - NULL if the character is not found or if str is NULL.
 */
-char	*ft_strrchr(const char *str, int character);
+char			*ft_strrchr(const char *str, int character);
+
+/**
+ * @brief Create a substring from a given string.
+ *
+ * @details This function creates a substring from the input string,
+ * starting at the specified index and with the specified number of
+ * bytes. The returned substring is allocated dynamically and should
+ * be freed by the caller when no longer needed.
+ *
+ * @param str The input string.
+ * @param start The starting index of the substring.
+ * @param bytes The number of bytes in the substring.
+ *
+ * @retval - A dynamically allocated substring.
+ * @retval - NULL if memory allocation fails or if the input is NULL.
+ *
+ * @note The substring is dynamically allocated and should be
+ * freed by the caller when no longer needed.
+*/
+char			*ft_substr(const char *str, size_t start, size_t bytes);
+
+/**
+ * @brief Trim characters from the beginning and end of a string..
+ *
+ * @details This function trims characters from the beginning and
+ * end of str based on the characters provided in the second string.
+ *
+ * @param str The input string.
+ * @param str2 The characters to trim from the string.
+ *
+ * @retval - A dinamically allocated trimmed string.
+ * @retval - NULL if memory allocation fails or if either str or
+ * str2 is NULL.
+ *
+ * @note The trimmed string is dynamically allocated and should be
+ * freed by the caller when no longer needed.
+*/
+char			*ft_strtrim(const char *str, const char *str2);
+
+/**
+ * @brief Applies a function to each character of a string , creating
+ * a new string.
+ *
+ * @details This function applies the provided function f to each
+ * character of the string str along with its index. The result
+ * is a new dynamically allocated string that contains the modified
+ * characters.
+ *
+ * @param str The input string.
+ * @f A function taking an unsigned integer index and a character
+ * as parameters, and returning a modified character.
+ *
+ * @retval - A dynamically allocated string with the modified
+ * characters.
+ * @retval - NULL if memory allocation fails or if the input string
+ * or function is NULL.
+ *
+ * @note The resulting string is dynamically allocated and should
+ * be freed by the caller when no longer needed.
+*/
+char			*ft_strmapi(const char *str, char (*f)(unsigned int, char));
+
+/**
+ * @brief Apply a function to each character of a string with its index.
+ *
+ * @details This function iterates through each character of str along
+ * with its index and applies the provided function f. The index and a
+ * pointer to the current character are passed as arguments to the function f.
+ *
+ * @param str The input string.
+ * @param f A function taking an unsigned integer index and a pointer to a
+ * character, and performing an operation on the character.
+ *
+ * @note If the input string or function pointer is NULL, the functions does
+ * nothing.
+*/
+void			ft_striteri(char *str, void (*f)(unsigned int, char *));
+
+/**
+ * @brief Converts an integer to its string representation.
+ *
+ * @details This function converts the given integer to its string
+ * representation and returns a dynamically allocated string.
+ *
+ * @param number The integer to convert.
+ *
+ * @retval - A dynamically allocated string representation of the
+ * integer.
+ * @retval - NULL if the memory allocation fails.
+ *
+ * @note The resulting string is dynamically allocated and should
+ * be freed by the caller when no longer needed.
+*/
+char			*ft_itoa(int number);
 /* ==========================================================================*/
 
 #endif
