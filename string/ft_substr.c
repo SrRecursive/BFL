@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:45:26 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/16 10:40:45 by ribana-b         ###   ########.fr       */
+/*   Created: 2023/11/16 10:47:23 by ribana-b          #+#    #+#             */
+/*   Updated: 2023/11/16 13:34:10 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/bfl.h"
 
-void	*ft_memmove(void *str, const void *str2, size_t bytes)
+char	*ft_substr(const char *str, size_t start, size_t bytes)
 {
-	char	*temp;
-	char	*temp2;
+	char	*newstr;
 
-	if (!str || !str2)
+	if (!str)
 		return (NULL);
-	temp = (char *)str;
-	temp2 = (char *)str2;
-	if (temp > temp2 || temp < (temp2 + bytes))
-		while (bytes--)
-			temp[bytes] = temp2[bytes];
-	else
-		ft_memcpy(str, str2, bytes);
-	return (str);
+	if ((bytes + start) > ft_strlen(str))
+		bytes = ft_strlen(str) - start;
+	if (start >= ft_strlen(str))
+		return (ft_calloc(1, 1));
+	newstr = (char *)malloc((bytes + 1) * sizeof(char));
+	if (!newstr)
+		return (NULL);
+	newstr[bytes] = '\0';
+	while (bytes-- > 0)
+		newstr[bytes] = str[start + bytes];
+	return (newstr);
 }

@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:45:26 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/16 10:40:45 by ribana-b         ###   ########.fr       */
+/*   Created: 2023/11/16 14:33:44 by ribana-b          #+#    #+#             */
+/*   Updated: 2023/11/16 14:42:28 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/bfl.h"
 
-void	*ft_memmove(void *str, const void *str2, size_t bytes)
+char	*ft_strmapi(const char *str, char (*f)(unsigned int, char))
 {
-	char	*temp;
-	char	*temp2;
+	char			*newstr;
+	unsigned int	counter;
 
-	if (!str || !str2)
+	if (!str || !f)
 		return (NULL);
-	temp = (char *)str;
-	temp2 = (char *)str2;
-	if (temp > temp2 || temp < (temp2 + bytes))
-		while (bytes--)
-			temp[bytes] = temp2[bytes];
-	else
-		ft_memcpy(str, str2, bytes);
-	return (str);
+	newstr = (char *)malloc((ft_strlen(str) + 1) * sizeof(char));
+	if (!newstr)
+		return (NULL);
+	counter = 0;
+	while(str[counter])
+	{
+		newstr[counter] = f(counter, str[counter]);
+		counter++;
+	}
+	newstr[counter] = '\0';
+	return (newstr);
 }

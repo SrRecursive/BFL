@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:45:26 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/16 10:40:45 by ribana-b         ###   ########.fr       */
+/*   Created: 2023/11/16 14:46:26 by ribana-b          #+#    #+#             */
+/*   Updated: 2023/11/16 14:48:34 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/bfl.h"
 
-void	*ft_memmove(void *str, const void *str2, size_t bytes)
+void	ft_striteri(char *str, void (*f)(unsigned int, char *))
 {
-	char	*temp;
-	char	*temp2;
+	unsigned int	counter;
 
-	if (!str || !str2)
-		return (NULL);
-	temp = (char *)str;
-	temp2 = (char *)str2;
-	if (temp > temp2 || temp < (temp2 + bytes))
-		while (bytes--)
-			temp[bytes] = temp2[bytes];
-	else
-		ft_memcpy(str, str2, bytes);
-	return (str);
+	if (!str || !f)
+		return ;
+	counter = 0;
+	while(str[counter])
+	{
+		f(counter, str + counter); 
+		counter++;
+	}
+	return ;
 }

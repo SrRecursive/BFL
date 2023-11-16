@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:45:26 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/16 10:40:45 by ribana-b         ###   ########.fr       */
+/*   Created: 2023/11/16 13:47:46 by ribana-b          #+#    #+#             */
+/*   Updated: 2023/11/16 14:00:37 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/bfl.h"
 
-void	*ft_memmove(void *str, const void *str2, size_t bytes)
+char	*ft_strtrim(const char *str, const char *str2)
 {
-	char	*temp;
-	char	*temp2;
+	size_t	start;
+	size_t	end;
 
 	if (!str || !str2)
 		return (NULL);
-	temp = (char *)str;
-	temp2 = (char *)str2;
-	if (temp > temp2 || temp < (temp2 + bytes))
-		while (bytes--)
-			temp[bytes] = temp2[bytes];
-	else
-		ft_memcpy(str, str2, bytes);
-	return (str);
+	if (!(*str))
+		return (ft_calloc(1, 1));
+	start = 0;
+	while (ft_strchr(str2, str[start]))
+		start++;
+	end = ft_strlen(str);
+	while (ft_strchr(str2, str[end]))
+		end--;
+	return (ft_substr(str, start, end - start + 1));
 }

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:45:26 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/16 10:40:45 by ribana-b         ###   ########.fr       */
+/*   Created: 2023/11/16 17:02:36 by ribana-b          #+#    #+#             */
+/*   Updated: 2023/11/16 17:07:10 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/bfl.h"
 
-void	*ft_memmove(void *str, const void *str2, size_t bytes)
+int	ft_putnbr_fd(int number, int fd)
 {
-	char	*temp;
-	char	*temp2;
+	char	*str;
+	int		byteswritten;
 
-	if (!str || !str2)
-		return (NULL);
-	temp = (char *)str;
-	temp2 = (char *)str2;
-	if (temp > temp2 || temp < (temp2 + bytes))
-		while (bytes--)
-			temp[bytes] = temp2[bytes];
-	else
-		ft_memcpy(str, str2, bytes);
-	return (str);
+	if (fd < 0)
+		return (-1);
+	str = ft_itoa(number);
+	if (!str)
+		return (-1);
+	byteswritten = ft_putstr_fd(str, fd);
+	free(str);
+	if (byteswritten < 0)
+		return (-1);
+	free(str);
+	return (byteswritten);
 }
