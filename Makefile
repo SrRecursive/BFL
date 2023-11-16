@@ -85,6 +85,7 @@ STRING_FILES	=	ft_atoi.c \
 					ft_itoa.c \
 					ft_strchr.c \
 					ft_strdup.c \
+					ft_striteri.c \
 					ft_strjoin.c \
 					ft_strlcat.c \
 					ft_strlcpy.c \
