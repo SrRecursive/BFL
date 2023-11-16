@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/16 17:11:08 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:10:23 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -658,6 +658,28 @@ void			ft_striteri(char *str, void (*f)(unsigned int, char *));
  * be freed by the caller when no longer needed.
 */
 char			*ft_itoa(int number);
+
+/**
+ * @brief Splits a string into an array of substrings based on a
+ * specified character.
+ *
+ * @details The function takes a string and a character as input
+ * and splits the string into an array of substrings using the
+ * specified character as the delimiter.
+ *
+ * @param str The input string to be split.
+ * @param character The character used as the delimiter for splitting
+ * the string.
+ *
+ * @retval - A dynamically allocated array of strings representing
+ * the substrings.
+ * @retval - NULL if memory allocation fails or if str is NULL.
+ *
+ * @note The returned array of strings is terminated by a NULL pointer.
+ * It is the caller's responsibility to free the memory allocated for
+ * both the array and its elements.
+*/
+char			**ft_split(const char *str, char character);
 /* ==========================================================================*/
 
 #endif

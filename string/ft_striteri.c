@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 14:46:26 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/16 14:48:34 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:03:56 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_striteri(char *str, void (*f)(unsigned int, char *))
 	if (!str || !f)
 		return ;
 	counter = 0;
-	while(str[counter])
+	while (str[counter])
 	{
 		f(counter, str + counter); 
 		counter++;
