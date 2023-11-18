@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/16 18:10:23 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/11/18 10:15:57 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,59 @@
 /* <--Defines Section--> */
 
 /* <--Libraries Section--> */
+
+/* ==========================================================================*/
 # include <unistd.h>
 # include <stdlib.h>
+/* ==========================================================================*/
+
+/* <--Structs Section--> */
+
+/* ==========================================================================*/
+/* Linked List */
+
+/**
+ * @struct t_ll
+ * @brief Typedef for struct s_ll which is a structure representing
+ * a node in a linked list.
+ *
+ * @var t_ll::content
+ * Pointer to the content of the current node.
+ * @var t_ll::next
+ * Pointer to the next node in the linked list.
+*/
+typedef struct s_ll
+{
+	void		*content;
+	struct s_ll	*next;
+}				t_ll;
+/* ==========================================================================*/
+
+/* ==========================================================================*/
+/* Doubly Linked List */
+
+/**
+ * @struct t_dll
+ * @brief Typedef for struct s_dll which is a structure representing
+ * a node in a double linked list.
+ *
+ * @var t_dll::content
+ * Pointer to the content of the current node.
+ * @var t_dll::previous
+ * Pointer to the previous node in the linked list.
+ * @var t_dll::next
+ * Pointer to the next node of the linked list.
+*/
+typedef struct s_dll
+{
+	void			*content;
+	struct s_dll	*previous;
+	struct s_dll	*next;
+}					t_dll;
+/* ==========================================================================*/
 
 /* <--Functions Section--> */
+
 /* ========================================================================= */
 /* Bool */
 
@@ -184,6 +233,68 @@ int				ft_tolower(int character);
  * @retval - character unmodified.
 */
 int				ft_toupper(int character);
+/* ========================================================================= */
+
+/* ========================================================================= */
+/* Data Structures*/
+
+/**
+ * @brief Create a new linked list node.
+ *
+ * @details This function allocates memory for a new linked list node.
+ *
+ * @retval - A pointer to the newly created linked list node.
+ * @retval - NULL if memory allocation fails.
+ *
+ * @note The caller is responsible for freeing the memory allocated.
+*/
+t_ll			*ll_create_node(void);
+
+/**
+ * @brief Add a new node to the linked list.
+ *
+ * @details This function appends a new node to the linked list.
+ *
+ * @param ll Pointer to the linked list.
+ *
+ * @note The caller is responsible for freeing the memory allocated.
+*/
+void			ll_add_node(t_ll **ll);
+
+/**
+ * @brief Generate a linked list of a specified lenght.
+ *
+ * @details This function generates a linked list of the specified lenght,
+ * with each node initialized and linked.
+ *
+ * @param lenght The lenght of the linked list to generate.
+ *
+ * @retval - A pointer to the head of the generated linked list.
+ * @retval - NULL if memory allocation fails.
+ *
+ * @note The caller is responsible for freeing the memory allocated.
+*/
+t_ll			*ll_generator(int lenght);
+
+/**
+ * @brief Destroy the content of a linked list node.
+ *
+ * @details This function frees the memory allocated for the content
+ * of a linked list node.
+ *
+ * @param ll Pointer to the linked list node.
+*/
+void			ll_destroy_content(t_ll **ll);
+
+/**
+ *	@brief Destroy a linked list.
+ *
+ *	@details This function frees the memory for the entire linked list,
+ *	including its nodes and content.
+ *
+ *	@param ll Pointer to the head of the linked list.
+*/
+void			ll_destroy(t_ll **ll);
 /* ========================================================================= */
 
 /* ========================================================================= */
