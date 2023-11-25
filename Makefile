@@ -125,23 +125,25 @@ all: $(NAME)
 
 # <--Library Creation-->#
 $(NAME): $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
-	@echo "$(T_YELLOW)$(BOLD)Objects created successfully$(RESET)"
-	ar rcs $(NAME) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
-	@echo "$(T_GREEN)$(BOLD)$(NAME) created successfully$(RESET)"
+	@echo "✅ 🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_GREEN)created successfully$(RESET)"
+	@ar rcs $(NAME) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
+	@echo "✅ 🦔 $(T_MAGENTA)$(BOLD)$(NAME) $(RESET)$(T_GREEN)created successfully$(RESET)"
 
 # <-- Objects Creation --> #
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "🔨 🦔 $(T_BLUE)$(BOLD)$@ $(RESET)$(T_GREEN)created!$(RESET)"
 
 # <-- Objects Destruction --> #
 clean:
 	$(RM) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
-	@echo "$(T_RED)$(BOLD)Source Object destroyed successfully$(RESET)"
+	@echo "🗑️  🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_RED)destroyed successfully$(RESET)"
 
 # <- Clean Execution + bfl.a Destruction -> #
 fclean: clean
 	$(RM) $(NAME)
-	@echo "$(T_RED)$(BOLD)$(NAME) destroyed successfully$(RESET)"
+	@echo "🗑️  🦔 $(T_MAGENTA)$(BOLD)$(NAME) $(RESET)$(T_RED)destroyed successfully$(RESET)"
 
 # <- Fclean Execution + All Execution -> #
 re: fclean all
