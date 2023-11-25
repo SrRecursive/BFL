@@ -137,12 +137,12 @@ $(NAME): $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_MEMORY) $
 
 # <-- Objects Destruction --> #
 clean:
-	$(RM) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
+	@$(RM) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
 	@echo "🗑️  🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_RED)destroyed successfully$(RESET)"
 
 # <- Clean Execution + bfl.a Destruction -> #
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 	@echo "🗑️  🦔 $(T_MAGENTA)$(BOLD)$(NAME) $(RESET)$(T_RED)destroyed successfully$(RESET)"
 
 # <- Fclean Execution + All Execution -> #
