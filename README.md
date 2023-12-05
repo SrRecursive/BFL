@@ -20,7 +20,7 @@ sudo apt install make build-essential
 Clone the repository
 
 ```Shell
-git clone https://github.com/SrRecursive/BFL.git
+git clone https://github.com/SrVariable/BFL.git
 ```
 
 Go inside the directory
