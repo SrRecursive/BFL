@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:20:10 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/15 17:26:05 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/12/10 13:03:45 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strnstr(const char *str, const char *str2, size_t bytes)
 {
-	size_t	str2lenght;
+	size_t	str2length;
 	char	*temp;
 
-	str2lenght = ft_strlen(str2);
+	str2length = ft_strlen(str2);
 	if (!str || !str2)
 		return (NULL);
 	if (!(*str2))
@@ -25,9 +25,9 @@ char	*ft_strnstr(const char *str, const char *str2, size_t bytes)
 	if (!(*str) && *str2)
 		return (NULL);
 	temp = (char *)str;
-	while (bytes > str2lenght && bytes--)
+	while (bytes >= str2length && bytes--)
 	{
-		if (ft_strncmp(temp, str2, str2lenght) == 0)
+		if (ft_strncmp(temp, str2, str2length) == 0)
 			return (temp);
 		temp++;
 	}
