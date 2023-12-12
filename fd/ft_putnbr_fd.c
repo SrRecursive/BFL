@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:02:36 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/16 17:07:10 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/12/12 15:10:28 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ int	ft_putnbr_fd(int number, int fd)
 	free(str);
 	if (byteswritten < 0)
 		return (-1);
-	free(str);
 	return (byteswritten);
 }
