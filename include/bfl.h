@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/12/12 18:42:36 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:56:13 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -370,11 +370,8 @@ int				ft_putnbr_fd(int number, int fd);
  * @param fd The file descriptor to write the hexadecimal representation
  * (lowercase) to.
  *
- * @retval The total number of bytes written, or -1 in case of an error.
- *
- * @note If the file descriptor is invalid or if an error occurs during
- * the conversion, the function returns -1.
- * The caller is responsible for handling the returned value appropriately.
+ * @retval The total number of bytes written
+ * @retval -1 in case of an error.
  */
 int				ft_puthexl_fd(unsigned long long n, int fd);
 
@@ -391,11 +388,8 @@ int				ft_puthexl_fd(unsigned long long n, int fd);
  * @param fd The file descriptor to write the hexadecimal representation
  * (uppercase) to.
  *
- * @retval The total number of bytes written, or -1 in case of an error.
- *
- * @note If the file descriptor is invalid or if an error occurs during
- * the conversion, the function returns -1.
- * The caller is responsible for handling the returned value appropriately.
+ * @retval The total number of bytes written
+ * @retval -1 in case of an error.
  */
 int				ft_puthexu_fd(unsigned long long n, int fd);
 
@@ -411,12 +405,8 @@ int				ft_puthexu_fd(unsigned long long n, int fd);
  * @param number The unsigned integer to convert and write.
  * @param fd The file descriptor to write the decimal representation to.
  *
- * @retval The total number of bytes written, or -1 in case of an error.
- *
- * @note If the file descriptor is invalid or if an error occurs during
- * the conversion, the function returns -1. The resulting decimal
- * representation only includes digits ('0'-'9'). The caller is
- * responsible for handling the returned value appropriately.
+ * @retval The total number of bytes written
+ * @retval -1 in case of an error.
  */
 int				ft_putunbr_fd(unsigned int number, int fd);
 
@@ -432,7 +422,8 @@ int				ft_putunbr_fd(unsigned int number, int fd);
  * @param ptr The pointer to be printed.
  * @param fd The file descriptor to write the hexadecimal representation to.
  *
- * @retval The total number of bytes written, or -1 in case of an error.
+ * @retval The total number of bytes written
+ * @retval -1 in case of an error.
  */
 int				ft_putaddress_fd(unsigned long long ptr, int fd);
 /* ==========================================================================*/
@@ -454,7 +445,7 @@ int				ft_putaddress_fd(unsigned long long ptr, int fd);
  * in the format string.
  *
  * @retval The total number of bytes written to the standard output
- * (file descriptor 1), or -1 in case of an error.
+ * @retval -1 in case of an error.
  */
 int				ft_printf(const char *str, ...);
 /* ==========================================================================*/
@@ -462,6 +453,26 @@ int				ft_printf(const char *str, ...);
 /* ==========================================================================*/
 /* Get_next_line */
 
+/**
+ * @brief Reads a line from a file descriptor.
+ *
+ * @details This function reads a line from the specified file
+ * descriptor and returns it as a dynamically allocated string.
+ * It uses a static variable to keep track of the remaining
+ * content from previous reads. The function allocates
+ * memory as needed, concatenates read content, and handles
+ * newline characters.
+ *
+ * @param fd The file descriptor from which to read the line.
+ *
+ * @retval A pointer to the line read from the file descriptor
+ * @retval NULL if there is an error or the end of file is reached.
+ *
+ * @note The caller is responsible for freeing the memory allocated for the returned line. The function uses a static variable
+ * to maintain content between calls. If BUFFER_SIZE is set to a value less than 1, or if there is a memory allocation failure,
+ * the function returns NULL. For improved portability, consider using ssize_t for bytesread, and uintptr_t from stdint.h when
+ * handling pointers.
+ */
 char			*get_next_line(int fd);
 /* ==========================================================================*/
 
