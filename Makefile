@@ -3,14 +3,14 @@
 # <-- Color Library --> #
 
 # <-- Text Color --> #
-T_BLACK					=	\033[30m
-T_RED					=	\033[31m
-T_GREEN					=	\033[32m
-T_YELLOW				=	\033[33m
-T_BLUE					=	\033[34m
-T_MAGENTA				=	\033[35m
-T_CYAN					=	\033[36m
-T_WHITE					=	\033[37m
+T_BLACK = \033[30m
+T_RED = \033[31m
+T_GREEN = \033[32m
+T_YELLOW = \033[33m
+T_BLUE = \033[34m
+T_MAGENTA = \033[35m
+T_CYAN = \033[36m
+T_WHITE = \033[37m
 
 # <-- Text Style --> #
 BOLD = \033[1m
@@ -19,104 +19,113 @@ UNDERLINE = \033[3m
 STRIKETHROUGH = \033[4m
 
 # <-- Background Color --> #
-B_BLACK					=	\033[40m
-B_RED					=	\033[41m
-B_GREEN					=	\033[42m
-B_YELLOW				=	\033[43m
-B_BLUE					=	\033[44m
-B_MAGENTA				=	\033[45m
-B_CYAN					=	\033[46m
-B_WHITE					=	\033[47m
+B_BLACK = \033[40m
+B_RED = \033[41m
+B_GREEN = \033[42m
+B_YELLOW = \033[43m
+B_BLUE = \033[44m
+B_MAGENTA = \033[45m
+B_CYAN = \033[46m
+B_WHITE = \033[47m
 
 # <-- Reset Everything --> #
-RESET					=	\033[0m
+RESET = \033[0m
 
 # ========================================================================== #
 
 # <-- Library's Name --> #
-NAME					=	bfl.a
+NAME = bfl.a
 
 # <-- Compilation Command --> #
-CC						=	gcc
+CC = gcc
 
 # <-- Compilation Flags --> #
-CFLAGS					=	-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 # <-- Remove Command -->#
-RM						=	rm -f
+RM = rm -f
 
 # <-- Directories --> #
-BOOL_DIR				=	bool/
-DATA_STRUCTURE_DIR		=	data_structure/
-CHAR_DIR				=	char/
-FD_DIR					=	fd/
-MEMORY_DIR				=	memory/
-STRING_DIR				=	string/
+BOOL_DIR = bool/
+DATA_STRUCTURE_DIR = data_structure/
+CHAR_DIR = char/
+FD_DIR = fd/
+FT_PRINTF_DIR = ft_printf/
+MEMORY_DIR = memory/
+STRING_DIR = string/
 
 # <-- Files --> #
-BOOL_FILES				=	ft_isalnum.c \
-							ft_isalpha.c \
-							ft_isascii.c \
-							ft_isblank.c \
-							ft_isdigit.c \
-							ft_islower.c \
-							ft_isprint.c \
-							ft_isupper.c \
-							ft_isxdigit.c
+BOOL_FILES = ft_isalnum.c \
+				ft_isalpha.c \
+				ft_isascii.c \
+				ft_isblank.c \
+				ft_isdigit.c \
+				ft_islower.c \
+				ft_isprint.c \
+				ft_isupper.c \
+				ft_isxdigit.c
 
-CHAR_FILES				=	ft_tolower.c \
-							ft_toupper.c
+CHAR_FILES = ft_tolower.c \
+				ft_toupper.c
 
-DATA_STRUCTURE_FILES	=	linked_list/ll_create.c \
-							linked_list/ll_destroy.c
+DATA_STRUCTURE_FILES = linked_list/ll_create.c \
+						linked_list/ll_destroy.c
 
-FD_FILES				=	ft_putchar_fd.c \
-							ft_putendl_fd.c \
-							ft_putnbr_fd.c \
-							ft_putstr_fd.c
+FD_FILES = ft_putaddress_fd.c \
+			ft_putchar_fd.c \
+			ft_putendl_fd.c \
+			ft_puthexl_fd.c \
+			ft_puthexu_fd.c \
+			ft_putnbr_fd.c \
+			ft_putstr_fd.c \
+			ft_putunbr_fd.c
 
-MEMORY_FILES			=	ft_bzero.c \
-							ft_calloc.c \
-							ft_memchr.c \
-							ft_memcmp.c \
-							ft_memcpy.c \
-							ft_memmove.c \
-							ft_memset.c 
+FT_PRINTF_FILES = ft_printf.c
+
+MEMORY_FILES = ft_bzero.c \
+				ft_calloc.c \
+				ft_memchr.c \
+				ft_memcmp.c \
+				ft_memcpy.c \
+				ft_memmove.c \
+				ft_memset.c 
 
 
-STRING_FILES			=	ft_atoi.c \
-							ft_atol.c \
-							ft_itoa.c \
-							ft_strchr.c \
-							ft_strdup.c \
-							ft_striteri.c \
-							ft_strjoin.c \
-							ft_strlcat.c \
-							ft_strlcpy.c \
-							ft_strlen.c \
-							ft_strmapi.c \
-							ft_strncmp.c \
-							ft_strncmp.c \
-							ft_strnstr.c \
-							ft_split.c \
-							ft_strrchr.c \
-							ft_substr.c
+STRING_FILES = ft_atoi.c \
+				ft_atol.c \
+				ft_itoa.c \
+				ft_strchr.c \
+				ft_strdup.c \
+				ft_striteri.c \
+				ft_strjoin.c \
+				ft_strlcat.c \
+				ft_strlcpy.c \
+				ft_strlen.c \
+				ft_strmapi.c \
+				ft_strncmp.c \
+				ft_strncmp.c \
+				ft_strnstr.c \
+				ft_split.c \
+				ft_strrchr.c \
+				ft_substr.c
 
 # <-- Directories + Files --> #
-BOOL					=	$(addprefix $(BOOL_DIR), $(BOOL_FILES))
-CHAR					=	$(addprefix $(CHAR_DIR), $(CHAR_FILES))
-DATA_STRUCTURE			=	$(addprefix $(DATA_STRUCTURE_DIR), $(DATA_STRUCTURE_FILES))
-FD						=	$(addprefix $(FD_DIR), $(FD_FILES))
-MEMORY					=	$(addprefix $(MEMORY_DIR), $(MEMORY_FILES))
-STRING					=	$(addprefix $(STRING_DIR), $(STRING_FILES))
+BOOL = $(addprefix $(BOOL_DIR), $(BOOL_FILES))
+CHAR = $(addprefix $(CHAR_DIR), $(CHAR_FILES))
+DATA_STRUCTURE = $(addprefix $(DATA_STRUCTURE_DIR), $(DATA_STRUCTURE_FILES))
+FD = $(addprefix $(FD_DIR), $(FD_FILES))
+FT_PRINTF = $(addprefix $(FT_PRINTF_DIR), $(FT_PRINTF_FILES))
+MEMORY = $(addprefix $(MEMORY_DIR), $(MEMORY_FILES))
+STRING = $(addprefix $(STRING_DIR), $(STRING_FILES))
 
 # <-- Objects --> #
-OBJ_BOOL				=	$(BOOL:.c=.o)
-OBJ_CHAR				=	$(CHAR:.c=.o)
-OBJ_DATA_STRUCTURE		=	$(DATA_STRUCTURE:.c=.o)
-OBJ_FD					=	$(FD:.c=.o)
-OBJ_MEMORY				=	$(MEMORY:.c=.o)
-OBJ_STRING				=	$(STRING:.c=.o)
+OBJ_BOOL = $(BOOL:.c=.o)
+OBJ_CHAR = $(CHAR:.c=.o)
+OBJ_DATA_STRUCTURE = $(DATA_STRUCTURE:.c=.o)
+OBJ_FD = $(FD:.c=.o)
+OBJ_FT_PRINTF = $(FT_PRINTF:.c=.o)
+OBJ_MEMORY = $(MEMORY:.c=.o)
+OBJ_STRING = $(STRING:.c=.o)
 
 # ========================================================================== #
 
@@ -124,9 +133,9 @@ OBJ_STRING				=	$(STRING:.c=.o)
 all: $(NAME)
 
 # <--Library Creation-->#
-$(NAME): $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
+$(NAME): $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_FT_PRINTF) $(OBJ_MEMORY) $(OBJ_STRING)
 	@echo "✅ 🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_GREEN)created successfully$(RESET)"
-	@ar rcs $(NAME) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
+	@ar rcs $(NAME) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FT_PRINTF) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
 	@echo "✅ 🦔 $(T_MAGENTA)$(BOLD)$(NAME) $(RESET)$(T_GREEN)created successfully$(RESET)"
 
 # <-- Objects Creation --> #
@@ -137,7 +146,7 @@ $(NAME): $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_MEMORY) $
 
 # <-- Objects Destruction --> #
 clean:
-	@$(RM) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
+	@$(RM) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_FT_PRINTF) $(OBJ_MEMORY) $(OBJ_STRING)
 	@echo "🗑️  🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_RED)destroyed successfully$(RESET)"
 
 # <- Clean Execution + bfl.a Destruction -> #

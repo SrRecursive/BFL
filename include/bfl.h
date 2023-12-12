@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/18 10:15:57 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:02:58 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 /* ==========================================================================*/
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
 /* ==========================================================================*/
 
 /* <--Structs Section--> */
@@ -323,6 +324,8 @@ int				ft_putchar_fd(char character, int fd);
  * 
  * @retval - 1 if it writes the string correctly.
  * @retval - -1 if there's an error writing the string.
+ *
+ * @note If the string is null, it writes (null).
 */
 int				ft_putstr_fd(const char *str, int fd);
 
@@ -353,6 +356,107 @@ int				ft_putendl_fd(const char *str, int fd);
  * memory allocation or writing errors.
 */
 int				ft_putnbr_fd(int number, int fd);
+
+/**
+ * @brief Converts an unsigned integer to a hexadecimal representation
+ * (lowercase) and writes it to a file descriptor.
+ *
+ * @details This function takes an unsigned integer `number` and writes
+ * its hexadecimal representation (lowercase) to the specified file
+ * descriptor `fd`. It uses the ft_puthex helper function for the conversion.
+ * If the given number is zero, it writes '0' to the file descriptor.
+ *
+ * @param number The unsigned integer to convert.
+ * @param fd The file descriptor to write the hexadecimal representation
+ * (lowercase) to.
+ *
+ * @retval The total number of bytes written, or -1 in case of an error.
+ *
+ * @note If the file descriptor is invalid or if an error occurs during
+ * the conversion, the function returns -1.
+ * The caller is responsible for handling the returned value appropriately.
+ */
+int				ft_puthexl_fd(unsigned long long n, int fd);
+
+/**
+ * @brief Converts an unsigned integer to a hexadecimal representation
+ * (uppercase) and writes it to a file descriptor.
+ *
+ * @details This function takes an unsigned integer `number` and writes
+ * its hexadecimal representation (uppercase) to the specified file
+ * descriptor `fd`. It uses the ft_puthex helper function for the conversion.
+ * If the given number is zero, it writes '0' to the file descriptor.
+ *
+ * @param number The unsigned integer to convert.
+ * @param fd The file descriptor to write the hexadecimal representation
+ * (uppercase) to.
+ *
+ * @retval The total number of bytes written, or -1 in case of an error.
+ *
+ * @note If the file descriptor is invalid or if an error occurs during
+ * the conversion, the function returns -1.
+ * The caller is responsible for handling the returned value appropriately.
+ */
+int				ft_puthexu_fd(unsigned long long n, int fd);
+
+/**
+ * @brief Writes the decimal representation of an unsigned integer
+ * to a file descriptor.
+ *
+ * @details This function takes an unsigned integer `number` and
+ * writes its decimal representation to the specified file descriptor
+ * `fd`. It uses the ft_putunbr helper function for the conversion.
+ * If the given number is zero, it writes '0' to the file descriptor.
+ *
+ * @param number The unsigned integer to convert and write.
+ * @param fd The file descriptor to write the decimal representation to.
+ *
+ * @retval The total number of bytes written, or -1 in case of an error.
+ *
+ * @note If the file descriptor is invalid or if an error occurs during
+ * the conversion, the function returns -1. The resulting decimal
+ * representation only includes digits ('0'-'9'). The caller is
+ * responsible for handling the returned value appropriately.
+ */
+int				ft_putunbr_fd(unsigned int number, int fd);
+
+/**
+ * @brief Prints the hexadecimal representation of a pointer to a file
+ * descriptor.
+ *
+ * @details This function takes a pointer and writes its hexadecimal
+ * representation (lowecase) to the specified file descriptor. The pointer
+ * is cast to an unsigned long long to ensure proper printing, accommodating
+ * both 32-bit and 64-bit systems.
+ *
+ * @param ptr The pointer to be printed.
+ * @param fd The file descriptor to write the hexadecimal representation to.
+ *
+ * @retval The total number of bytes written, or -1 in case of an error.
+ */
+int				ft_putaddress_fd(unsigned long long ptr, int fd);
+/* ==========================================================================*/
+
+/* ==========================================================================*/
+/* Ft_printf */
+
+/**
+ * @brief Custom printf implementation with limited format specifiers.
+ *
+ * @details This function emulates the behavior of printf for a subset
+ * of format specifiers. It supports the following format
+ * specifiers: %c (character), %s (string), %d or %i (decimal/integer),
+ * %u (unsigned decimal/integer), %x (hexadecimal lowercase),
+ * %X (hexadecimal uppercase), and %p (pointer).
+ *
+ * @param str The format string containing format specifiers.
+ * @param ... Variable arguments corresponding to the format specifiers
+ * in the format string.
+ *
+ * @retval The total number of bytes written to the standard output
+ * (file descriptor 1), or -1 in case of an error.
+ */
+int				ft_printf(const char *str, ...);
 /* ==========================================================================*/
 
 /* ==========================================================================*/

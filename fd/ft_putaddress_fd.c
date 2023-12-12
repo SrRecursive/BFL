@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putaddress_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 17:02:36 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/12/12 15:10:28 by ribana-b         ###   ########.fr       */
+/*   Created: 2023/12/12 17:10:29 by ribana-b          #+#    #+#             */
+/*   Updated: 2023/12/12 17:36:51 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/bfl.h"
 
-int	ft_putnbr_fd(int number, int fd)
+int	ft_putaddress_fd(unsigned long long ptr, int fd)
 {
-	char	*str;
-	int		byteswritten;
+	int	success;
+	int	byteswritten;
 
-	if (fd < 0)
+	byteswritten = 0;
+	success = ft_putstr_fd("0x", fd);
+	if (success < 0)
 		return (-1);
-	str = ft_itoa(number);
-	if (!str)
+	byteswritten += success;
+	success = ft_puthexl_fd(ptr, fd);
+	if (success < 0)
 		return (-1);
-	byteswritten = ft_putstr_fd(str, fd);
-	free(str);
-	if (byteswritten < 0)
-		return (-1);
+	byteswritten += success;
 	return (byteswritten);
 }
