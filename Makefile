@@ -51,6 +51,7 @@ DATA_STRUCTURE_DIR = data_structure/
 CHAR_DIR = char/
 FD_DIR = fd/
 FT_PRINTF_DIR = ft_printf/
+GET_NEXT_LINE_DIR = get_next_line/
 MEMORY_DIR = memory/
 STRING_DIR = string/
 
@@ -81,6 +82,8 @@ FD_FILES = ft_putaddress_fd.c \
 			ft_putunbr_fd.c
 
 FT_PRINTF_FILES = ft_printf.c
+
+GET_NEXT_LINE_FILES = get_next_line.c
 
 MEMORY_FILES = ft_bzero.c \
 				ft_calloc.c \
@@ -115,6 +118,7 @@ CHAR = $(addprefix $(CHAR_DIR), $(CHAR_FILES))
 DATA_STRUCTURE = $(addprefix $(DATA_STRUCTURE_DIR), $(DATA_STRUCTURE_FILES))
 FD = $(addprefix $(FD_DIR), $(FD_FILES))
 FT_PRINTF = $(addprefix $(FT_PRINTF_DIR), $(FT_PRINTF_FILES))
+GET_NEXT_LINE = $(addprefix $(GET_NEXT_LINE_DIR), $(GET_NEXT_LINE_FILES))
 MEMORY = $(addprefix $(MEMORY_DIR), $(MEMORY_FILES))
 STRING = $(addprefix $(STRING_DIR), $(STRING_FILES))
 
@@ -124,6 +128,7 @@ OBJ_CHAR = $(CHAR:.c=.o)
 OBJ_DATA_STRUCTURE = $(DATA_STRUCTURE:.c=.o)
 OBJ_FD = $(FD:.c=.o)
 OBJ_FT_PRINTF = $(FT_PRINTF:.c=.o)
+OBJ_GET_NEXT_LINE = $(GET_NEXT_LINE:.c=.o)
 OBJ_MEMORY = $(MEMORY:.c=.o)
 OBJ_STRING = $(STRING:.c=.o)
 
@@ -133,9 +138,9 @@ OBJ_STRING = $(STRING:.c=.o)
 all: $(NAME)
 
 # <--Library Creation-->#
-$(NAME): $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_FT_PRINTF) $(OBJ_MEMORY) $(OBJ_STRING)
+$(NAME): $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_FT_PRINTF) $(OBJ_GET_NEXT_LINE) $(OBJ_MEMORY) $(OBJ_STRING)
 	@echo "✅ 🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_GREEN)created successfully$(RESET)"
-	@ar rcs $(NAME) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FT_PRINTF) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
+	@ar rcs $(NAME) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FT_PRINTF) $(OBJ_GET_NEXT_LINE) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
 	@echo "✅ 🦔 $(T_MAGENTA)$(BOLD)$(NAME) $(RESET)$(T_GREEN)created successfully$(RESET)"
 
 # <-- Objects Creation --> #
@@ -146,7 +151,7 @@ $(NAME): $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_FT_PRINTF
 
 # <-- Objects Destruction --> #
 clean:
-	@$(RM) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_FT_PRINTF) $(OBJ_MEMORY) $(OBJ_STRING)
+	@$(RM) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_FT_PRINTF) $(OBJ_GET_NEXT_LINE) $(OBJ_MEMORY) $(OBJ_STRING)
 	@echo "🗑️  🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_RED)destroyed successfully$(RESET)"
 
 # <- Clean Execution + bfl.a Destruction -> #
