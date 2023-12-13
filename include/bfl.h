@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/12/12 18:56:13 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/12/13 13:16:20 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -468,10 +468,10 @@ int				ft_printf(const char *str, ...);
  * @retval A pointer to the line read from the file descriptor
  * @retval NULL if there is an error or the end of file is reached.
  *
- * @note The caller is responsible for freeing the memory allocated for the returned line. The function uses a static variable
- * to maintain content between calls. If BUFFER_SIZE is set to a value less than 1, or if there is a memory allocation failure,
- * the function returns NULL. For improved portability, consider using ssize_t for bytesread, and uintptr_t from stdint.h when
- * handling pointers.
+ * @note The caller is responsible for freeing the memory allocated for the
+ * returned line. The function uses a static variable to maintain content
+ * between calls. If BUFFER_SIZE is set to a value less than 1, or if there
+ * is a memory allocation failure, the function returns NULL.
  */
 char			*get_next_line(int fd);
 /* ==========================================================================*/
