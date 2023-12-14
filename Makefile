@@ -154,15 +154,21 @@ clean:
 	@$(RM) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_FT_PRINTF) $(OBJ_GET_NEXT_LINE) $(OBJ_MEMORY) $(OBJ_STRING)
 	@echo "🗑️  🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_RED)destroyed successfully$(RESET)"
 
-# <- Clean Execution + bfl.a Destruction -> #
+# <-- Clean Execution + bfl.a Destruction --> #
 fclean: clean
 	@$(RM) $(NAME)
 	@echo "🗑️  🦔 $(T_MAGENTA)$(BOLD)$(NAME) $(RESET)$(T_RED)destroyed successfully$(RESET)"
 
-# <- Fclean Execution + All Execution -> #
+# <-- Fclean Execution + All Execution --> #
 re: fclean all
 
-# <- Targets Declaration -> #
-.PHONY = all clean fclean re
+# <-- Testers -->
+bool_test: all
+	@$(CC) $(CFLAGS) test/bool_test.c $(NAME)
+	@./a.out
+	@rm ./a.out
+
+# <-- Targets Declaration --> #
+.PHONY = all clean fclean re bool_test
 
 # ========================================================================== #
