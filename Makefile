@@ -163,12 +163,12 @@ fclean: clean
 re: fclean all
 
 # <-- Testers -->
-bool_test: all
-	@$(CC) $(CFLAGS) test/bool_test.c $(NAME)
+test: all
+	@$(CC) $(CFLAGS) test/main_test.c $(NAME)
 	@./a.out
-	@rm ./a.out
+	@rm ./a.out *.txt
 
 # <-- Targets Declaration --> #
-.PHONY = all clean fclean re bool_test
+.PHONY = all clean fclean re test
 
 # ========================================================================== #
