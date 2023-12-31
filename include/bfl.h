@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/12/13 13:16:20 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/12/26 22:25:39 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -263,19 +263,19 @@ t_ll			*ll_create_node(void);
 void			ll_add_node(t_ll **ll);
 
 /**
- * @brief Generate a linked list of a specified lenght.
+ * @brief Generate a linked list of a specified length.
  *
- * @details This function generates a linked list of the specified lenght,
+ * @details This function generates a linked list of the specified length,
  * with each node initialized and linked.
  *
- * @param lenght The lenght of the linked list to generate.
+ * @param length The length of the linked list to generate.
  *
  * @retval - A pointer to the head of the generated linked list.
  * @retval - NULL if memory allocation fails.
  *
  * @note The caller is responsible for freeing the memory allocated.
 */
-t_ll			*ll_generator(int lenght);
+t_ll			*ll_generator(int length);
 
 /**
  * @brief Destroy the content of a linked list node.
@@ -705,8 +705,8 @@ char			*ft_strdup(const char *str);
  *
  * @details This function copies characters from the string str2 to str,
  * ensuring null-termination. If str is large enough to accomodate bytes
- * characters, it returns the total lenght of the concatenated strings
- * str and str2. If str is not large enough, it returns the lenght of
+ * characters, it returns the total length of the concatenated strings
+ * str and str2. If str is not large enough, it returns the length of
  * str2 + bytes.
  *
  * @param str The destination string.
@@ -714,9 +714,9 @@ char			*ft_strdup(const char *str);
  * @param bytes The maximum number of characters to copy, including
  * the null-terminator.
  *
- * @retval - The total lenght of the concatenated strings str and str2
+ * @retval - The total length of the concatenated strings str and str2
  * if successful.
- * @retval - The lenght of str2 + bytes if str is not large enough.
+ * @retval - The length of str2 + bytes if str is not large enough.
  * @retval - 0 if either str or str2 is NULL.
 */
 size_t			ft_strlcpy(char *str, const char *str2, size_t bytes);
@@ -726,16 +726,16 @@ size_t			ft_strlcpy(char *str, const char *str2, size_t bytes);
  *
  * @details This function appends the contents of the null -terminated
  * string str2 to the end of the null-terminated string str, ensuring
- * that the total lenght does not exceed the given buffer size. The
+ * that the total length does not exceed the given buffer size. The
  * resulting string in str is null-terminated.
  *
  * @param str A pointer to the destination null-terminated string.
  * @param str2 A pointer to the source null-terminated string to
  * be appennded.
  * @param bytes The size of the buffer, indicating the maximum
- * allowed lenght for the resulting string in str.
+ * allowed length for the resulting string in str.
  *
- * @retval - The total lenght of the concatenated strings (excluding
+ * @retval - The total length of the concatenated strings (excluding
  * the null terminator) if the operation is successful.
  * @retval - 0 if either str or str is NULL.
 */

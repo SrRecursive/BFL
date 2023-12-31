@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ll_create.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:58:54 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/18 10:18:25 by ribana-b         ###   ########.fr       */
+/*   Updated: 2023/12/26 22:25:38 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,20 @@ void	ll_add_node(t_ll **ll)
 	(*ll)->next = newnode;
 }
 
-t_ll	*ll_generator(int lenght)
+t_ll	*ll_generator(int length)
 {
 	t_ll	*ll;
 	t_ll	*temp;
 
-	if (lenght < 1)
+	if (length < 1)
 		return (NULL);
 	ll = ll_create_node();
 	if (!ll)
 		return (NULL);
-	if (lenght == 1)
+	if (length == 1)
 		return (ll);
 	temp = ll;
-	while (lenght-- > 1)
+	while (length-- > 1)
 	{
 		ll_add_node(&temp);
 		if (!temp->next)
