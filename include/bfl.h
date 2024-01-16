@@ -6,24 +6,28 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/12/26 22:25:39 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:50:35 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BFL_H
 # define BFL_H
 
-/* <--Defines Section--> */
+/* <-- Defines Section --> */
+
 # define BUFFER_SIZE 1024
-/* <--Libraries Section--> */
+
+/* <-- Libraries Section --> */
 
 /* ==========================================================================*/
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <stddef.h>
 /* ==========================================================================*/
 
-/* <--Structs Section--> */
+/* <-- Structs Section --> */
 
 /* ==========================================================================*/
 /* Linked List */
@@ -592,6 +596,20 @@ void			*ft_memmove(void *str, const void *str2, size_t bytes);
  * less than the first bytes of str2 respectively
 */
 int				ft_memcmp(const void *str, const void *str2, size_t bytes);
+
+/**
+ * @brief Free a pointer (up to triple pointer) and set to NULL.
+ * 
+ * @details This function frees a pointer (up to a triple pointer)
+ * and sets it to NULL. The number of pointers to be freed is
+ * determined by the value of index_limit.
+ * 
+ * @param ptr_reference Address of the pointer.
+ * @param index_limit Number of pointers to be freed.
+ * @param ... Variable arguments corresponding to the limit of
+ * the index of the pointer/s.
+*/
+void			ft_free(void *ptr_reference, size_t index_limit, ...);
 /* ==========================================================================*/
 
 /* ==========================================================================*/
@@ -912,6 +930,24 @@ char			*ft_itoa(int number);
  * both the array and its elements.
 */
 char			**ft_split(const char *str, char character);
+
+/**
+ * @brief Calculate the length of a null-terminated array of strings.
+ * 
+ * @details This function takes a null-terminated array of strings,
+ * commonly obtained through string splitting, and calculates the
+ * total number of strings in the array.
+ * 
+ * @param split Null-terminated array of strings.
+ * 
+ * @return The total number of strings in the array (excluding the null
+ * terminator).
+ * @return 0 If the input is NULL.
+ * 
+ * @note The function assumes that the input array is null-terminated
+ * and ends with a NULL pointer.
+*/
+size_t			ft_splitlen(char **split);
 /* ==========================================================================*/
 
 #endif

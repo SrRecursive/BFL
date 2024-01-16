@@ -37,7 +37,7 @@ RESET = \033[0m
 NAME = bfl.a
 
 # <-- Compilation Command --> #
-CC = gcc
+CC = cc
 
 # <-- Compilation Flags --> #
 CFLAGS = -Wall -Wextra -Werror
@@ -87,6 +87,7 @@ GET_NEXT_LINE_FILES = get_next_line.c
 
 MEMORY_FILES = ft_bzero.c \
 				ft_calloc.c \
+				ft_free.c \
 				ft_memchr.c \
 				ft_memcmp.c \
 				ft_memcpy.c \
@@ -109,6 +110,7 @@ STRING_FILES = ft_atoi.c \
 				ft_strncmp.c \
 				ft_strnstr.c \
 				ft_split.c \
+				ft_splitlen.c \
 				ft_strrchr.c \
 				ft_substr.c
 
@@ -140,7 +142,7 @@ all: $(NAME)
 # <--Library Creation-->#
 $(NAME): $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FD) $(OBJ_FT_PRINTF) $(OBJ_GET_NEXT_LINE) $(OBJ_MEMORY) $(OBJ_STRING)
 	@echo "✅ 🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_GREEN)created successfully$(RESET)"
-	@ar rcs $(NAME) $(OBJ_BOOL) $(OBJ_CHAR) $(OBJ_DATA_STRUCTURE) $(OBJ_FT_PRINTF) $(OBJ_GET_NEXT_LINE) $(OBJ_FD) $(OBJ_MEMORY) $(OBJ_STRING)
+	@ar rcs $@ $^
 	@echo "✅ 🦔 $(T_MAGENTA)$(BOLD)$(NAME) $(RESET)$(T_GREEN)created successfully$(RESET)"
 
 # <-- Objects Creation --> #
