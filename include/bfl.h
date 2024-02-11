@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/01/16 17:50:35 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/02/11 08:14:09 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -602,14 +602,15 @@ int				ft_memcmp(const void *str, const void *str2, size_t bytes);
  * 
  * @details This function frees a pointer (up to a triple pointer)
  * and sets it to NULL. The number of pointers to be freed is
- * determined by the value of index_limit.
+ * determined by the value of ptr_size.
  * 
- * @param ptr_reference Address of the pointer.
- * @param index_limit Number of pointers to be freed.
- * @param ... Variable arguments corresponding to the limit of
- * the index of the pointer/s.
+ * @param ptr_address Address of the pointer.
+ * @param asterisk_amount Amount of asterisks.
+ *
+ * @note When asterisk_amount is greater than 1, the every pointer
+ * must be NULL terminated.
 */
-void			ft_free(void *ptr_reference, size_t index_limit, ...);
+void			ft_free(void *ptr_address, size_t asterisk_amount);
 /* ==========================================================================*/
 
 /* ==========================================================================*/
@@ -947,7 +948,7 @@ char			**ft_split(const char *str, char character);
  * @note The function assumes that the input array is null-terminated
  * and ends with a NULL pointer.
 */
-size_t			ft_splitlen(char **split);
+size_t			ft_splitlength(char **split);
 /* ==========================================================================*/
 
 #endif

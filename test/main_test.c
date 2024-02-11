@@ -119,9 +119,7 @@ int	main(void)
 		if (WIFEXITED(status))
 		{
 			if (WEXITSTATUS(status) == 0)
-			{
 				printf("ft_putaddress_fd: \033[32mOK\033[0m\n");
-			}
 			else
 			{
 				printf("ft_putaddress_fd: \033[31mKO\033[0m\n");
@@ -150,9 +148,7 @@ int	main(void)
 		if (WIFEXITED(status))
 		{
 			if (WEXITSTATUS(status) == 0)
-			{
 				printf("ft_putchar_fd: \033[32mOK\033[0m\n");
-			}
 			else
 			{
 				printf("ft_putchar_fd: \033[31mKO\033[0m\n");
@@ -181,9 +177,7 @@ int	main(void)
 		if (WIFEXITED(status))
 		{
 			if (WEXITSTATUS(status) == 0)
-			{
 				printf("ft_putendl_fd: \033[32mOK\033[0m\n");
-			}
 			else
 			{
 				printf("ft_putendl_fd: \033[31mKO\033[0m\n");
@@ -212,9 +206,7 @@ int	main(void)
 		if (WIFEXITED(status))
 		{
 			if (WEXITSTATUS(status) == 0)
-			{
 				printf("ft_puthexl_fd: \033[32mOK\033[0m\n");
-			}
 			else
 			{
 				printf("ft_puthexl_fd: \033[31mKO\033[0m\n");
@@ -243,9 +235,7 @@ int	main(void)
 		if (WIFEXITED(status))
 		{
 			if (WEXITSTATUS(status) == 0)
-			{
 				printf("ft_puthexu_fd: \033[32mOK\033[0m\n");
-			}
 			else
 			{
 				printf("ft_puthexu_fd: \033[31mKO\033[0m\n");
@@ -274,9 +264,7 @@ int	main(void)
 		if (WIFEXITED(status))
 		{
 			if (WEXITSTATUS(status) == 0)
-			{
 				printf("ft_putnbr_fd: \033[32mOK\033[0m\n");
-			}
 			else
 			{
 				printf("ft_putnbr_fd: \033[31mKO\033[0m\n");
@@ -305,9 +293,7 @@ int	main(void)
 		if (WIFEXITED(status))
 		{
 			if (WEXITSTATUS(status) == 0)
-			{
 				printf("ft_putstr_fd: \033[32mOK\033[0m\n");
-			}
 			else
 			{
 				printf("ft_putstr_fd: \033[31mKO\033[0m\n");
@@ -336,9 +322,7 @@ int	main(void)
 		if (WIFEXITED(status))
 		{
 			if (WEXITSTATUS(status) == 0)
-			{
 				printf("ft_putunbr_fd: \033[32mOK\033[0m\n");
-			}
 			else
 			{
 				printf("ft_putunbr_fd: \033[31mKO\033[0m\n");
