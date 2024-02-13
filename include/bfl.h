@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/02/13 13:51:51 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:36:01 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -260,11 +260,11 @@ t_ll				*ll_create_node(void);
  *
  * @details This function appends a new node to the linked list.
  *
- * @param ll Pointer to the linked list.
+ * @param linked_list Address of the linked list.
  *
  * @note The caller is responsible for freeing the memory allocated.
  */
-void				ll_add_node(t_ll **ll);
+void				ll_add_node(t_ll **linked_list);
 
 /**
  * @brief Generate a linked list of a specified length.
@@ -287,9 +287,9 @@ t_ll				*ll_generator(int length);
  * @details This function frees the memory allocated for the content
  * of a linked list node.
  *
- * @param ll Pointer to the linked list node.
+ * @param linked_list Address of the linked list node.
  */
-void				ll_destroy_content(t_ll **ll);
+void				ll_destroy_content(t_ll **linked_list);
 
 /**
  *	@brief Destroy a linked list.
@@ -297,9 +297,9 @@ void				ll_destroy_content(t_ll **ll);
  *	@details This function frees the memory for the entire linked list,
  *	including its nodes and content.
  *
- *	@param ll Pointer to the head of the linked list.
+ *	@param linked_list Pointer to the head of the linked list.
  */
-void				ll_destroy(t_ll **ll);
+void				ll_destroy(t_ll **linked_list);
 /* ========================================================================= */
 
 /* ========================================================================= */
@@ -518,7 +518,7 @@ void				ft_bzero(void *ptr, size_t bytes);
  * size and initializes them with null characters.
  *
  * @param bytes The total number of bytes to allocate memory for.
- * @param sizetype The size (in bytes) of each element.
+ * @param size_type The size (in bytes) of each element.
  *
  * @retval - A pointer with memory allocated and set with null characters if
  * successful.
@@ -526,7 +526,7 @@ void				ft_bzero(void *ptr, size_t bytes);
  *
  * @note The caller is responsible for freeing the memory allocated.
  */
-void				*ft_calloc(size_t bytes, size_t sizetype);
+void				*ft_calloc(size_t bytes, size_t size_type);
 
 /**
  * @brief Locate a byte in a memory block.

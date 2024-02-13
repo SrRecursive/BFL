@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:42:41 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/15 13:57:15 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:53:21 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ long int	ft_atol(const char *str)
 
 	if (!str)
 		return (0);
-	if (ft_strncmp(str, "-9223372036854775808", 20) == 0)
+	if (!ft_strncmp(str, "-9223372036854775808", 20) == 0)
 		return (-9223372036854775807 - 1);
 	sign = 1;
 	while (*str == '\n' || *str == '\t' || *str == '\v' || *str == ' '
