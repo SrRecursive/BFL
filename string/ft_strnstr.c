@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:20:10 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/12/10 13:03:45 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:28:44 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,18 @@
 
 char	*ft_strnstr(const char *str, const char *str2, size_t bytes)
 {
-	size_t	str2length;
+	size_t	length;
 	char	*temp;
 
-	str2length = ft_strlen(str2);
-	if (!str || !str2)
+	length = ft_strlen(str2);
+	if (!str || !str2 || (!(*str) && *str2))
 		return (NULL);
 	if (!(*str2))
 		return ((char *)str);
-	if (!(*str) && *str2)
-		return (NULL);
 	temp = (char *)str;
-	while (bytes >= str2length && bytes--)
+	while (bytes >= length && bytes--)
 	{
-		if (ft_strncmp(temp, str2, str2length) == 0)
+		if (ft_strncmp(temp, str2, length) == 0)
 			return (temp);
 		temp++;
 	}

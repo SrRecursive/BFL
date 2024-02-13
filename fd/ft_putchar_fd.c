@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:44:24 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/10/04 13:03:25 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:05:02 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	ft_putchar_fd(char character, int fd)
 {
-	int	byteswritten;
+	int	bytes_written;
 
 	if (fd < 0)
 		return (-1);
-	byteswritten = write(fd, &character, 1);
-	if (byteswritten < 0)
+	bytes_written = write(fd, &character, 1);
+	if (bytes_written < 0)
 		return (-1);
-	return (byteswritten);
+	return (bytes_written);
 }

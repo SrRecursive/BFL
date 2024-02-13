@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:09:30 by ribana-b          #+#    #+#             */
-/*   Updated: 2023/11/16 10:42:05 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:43:33 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ size_t	ft_strlen(const char *str)
 {
 	int	counter;
 
-	if (str == NULL)
+	if (!str)
 		return (0);
 	counter = 0;
 	while (str[counter] != '\0')
