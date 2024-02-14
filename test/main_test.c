@@ -1,7 +1,7 @@
 #include "bool_test.c"
 #include "char_test.c"
 #include "fd_test.c"
-#include "../include/bfl.h"
+#include "bfl.h"
 #include <stdio.h>
 #include <unistd.h>
 

@@ -6,11 +6,11 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:07:34 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/02/13 15:21:00 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:48:59 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/bfl.h"
+#include "bfl.h"
 
 size_t	ft_strlcat(char *str, const char *str2, size_t bytes)
 {

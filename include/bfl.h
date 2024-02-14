@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/02/13 15:36:01 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:56:55 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -607,10 +607,13 @@ int					ft_memcmp(const void *str, const void *str2, size_t bytes);
  * @param ptr_address Address of the pointer.
  * @param asterisk_amount Amount of asterisks.
  *
+ * @return NULL if ptr_address is NULL or the pointer is freed
+ * successfully.
+ *
  * @note When asterisk_amount is greater than 1, the every pointer
  * must be NULL terminated.
  */
-void				ft_free(void *ptr_address, size_t asterisk_amount);
+void				*ft_free(void *ptr_address, size_t asterisk_amount);
 /* ==========================================================================*/
 
 /* ==========================================================================*/
@@ -949,7 +952,7 @@ char				**ft_split(const char *str, char character);
  * @note The function assumes that the input array is null-terminated
  * and ends with a NULL pointer.
  */
-size_t				ft_splitlength(char **split);
+size_t				ft_splitlen(char **split);
 /* ==========================================================================*/
 
 #endif

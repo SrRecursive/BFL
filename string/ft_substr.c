@@ -6,11 +6,11 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 10:47:23 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/02/13 15:30:24 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:48:59 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/bfl.h"
+#include "bfl.h"
 
 char	*ft_substr(const char *str, size_t start, size_t bytes)
 {

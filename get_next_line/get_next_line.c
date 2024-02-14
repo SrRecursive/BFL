@@ -6,11 +6,11 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 18:11:44 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/02/13 15:27:55 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:48:59 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/bfl.h"
+#include "bfl.h"
 
 static char	*ft_strjoin_gnl(char *str, const char *str2)
 {
