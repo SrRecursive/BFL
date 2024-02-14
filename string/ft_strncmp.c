@@ -6,11 +6,11 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:56:36 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/02/13 15:24:01 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:48:59 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/bfl.h"
+#include "bfl.h"
 
 int	ft_strncmp(const char *str, const char *str2, size_t bytes)
 {

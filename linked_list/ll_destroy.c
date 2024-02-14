@@ -6,11 +6,11 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 09:27:42 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/02/13 14:38:40 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:48:59 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/bfl.h"
+#include "bfl.h"
 
 void	ll_destroy_content(t_ll **linked_list)
 {

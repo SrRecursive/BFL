@@ -1,4 +1,4 @@
-#include "../include/bfl.h"
+#include "bfl.h"
 #include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>

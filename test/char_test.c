@@ -1,4 +1,4 @@
-#include "../include/bfl.h"
+#include "bfl.h"
 #include <stdio.h>
 #include <ctype.h>
 
