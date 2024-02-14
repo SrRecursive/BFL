@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:32:44 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/02/14 12:48:59 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:20:41 by ribana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ static size_t	number_length(int number)
 
 	if (number < 0)
 		number = number * -1;
-	else
-		number = number;
 	counter = 1;
 	while (number / 10)
 	{
