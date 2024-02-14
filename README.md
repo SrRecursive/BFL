@@ -3,19 +3,30 @@
 ## Description
 
 Big Function Library is a UNIX collection of functions made from scratch.
+It uses the libraries _stdarg.h_, _stddef.h_, _stdlib.h_ and _unistd.h_.
 
 ## Requirements
 
-- Make
-- GCC
+- make
+- gcc
 
-**NOTE**: If you don't have any of these run these commands
-```Shell
-sudo apt update
-sudo apt install make build-essential
-```
+> [!NOTE]
+>
+> Run this command to install the requirements
+>
+> ```Shell
+> sudo apt update
+> sudo apt install make \
+>                 build-essential
+> ```
 
 ## Usage
+
+Go to you project directory
+
+```Shell
+cd /path/to/your/project
+```
 
 Clone the repository
 
@@ -23,35 +34,28 @@ Clone the repository
 git clone https://github.com/SrVariable/BFL.git
 ```
 
-Go inside the directory
+Compile the library and link it to your project
 
 ```Shell
-cd BFL
+make -C BFL
+gcc main.c BFL/bfl.a -I BFL/include
 ```
 
-Use make
+> [!NOTE]
+>
+> Remember to include the header file in your project
+>
+> ```C
+> #include "bfl.h"
+>
+> int main(int argc, char **argv)
+> {
+>     ft_printf("Hello World\n");
+>     return (0);
+> }
+> ```
 
-```Shell
-make
-```
+## Contributing
 
-Copy the header and the library in your program path
-
-```Shell
-cp include/bfl.h bfl.a ../project
-```
-Compile your program adding the library bfl.a
-
-```Shell
-cd ../project
-gcc main.c bfl.a
-```
-
-**NOTE**: Remember to include the header in your code 
-
-```C
-#include "bfl.h"
-/* Your code */
-```
-
-
+If you find any bug or have any suggestion, please open an issue
+[here](https://github.com/SrVariable/BFL/issues/new).
