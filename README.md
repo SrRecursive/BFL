@@ -38,7 +38,7 @@ Compile the library and link it to your project
 
 ```Shell
 make -C BFL
-gcc main.c BFL/bfl.a -I BFL/include
+gcc main.c -L./BFL -lbfl -I BFL/include
 ```
 
 > [!NOTE]
