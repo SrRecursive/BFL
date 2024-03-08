@@ -34,7 +34,7 @@ RESET = \033[0m
 # ========================================================================== #
 
 # <-- Library's Name --> #
-NAME = bfl.a
+NAME = libbfl.a
 
 # <-- Compilation Command --> #
 CC = cc
@@ -214,7 +214,7 @@ clean:
 	@$(RM) $(OBJ_DIR)
 	@echo "🗑️  🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_RED)destroyed successfully$(RESET)"
 
-# <-- Clean Execution + bfl.a Destruction --> #
+# <-- Clean Execution + Library Destruction --> #
 fclean: clean
 	@$(RM) $(NAME)
 	@echo "🗑️  🦔 $(T_MAGENTA)$(BOLD)$(NAME) $(RESET)$(T_RED)destroyed successfully$(RESET)"
