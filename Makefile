@@ -40,7 +40,11 @@ NAME = bfl.a
 CC = cc
 
 # <-- Compilation Flags --> #
+ifdef WITH_DEBUG
+CFLAGS = -Wall -Wextra -Werror -ggdb
+else
 CFLAGS = -Wall -Wextra -Werror
+endif
 
 # <-- Include Library -->#
 INCLUDE = -I ./include
@@ -224,7 +228,11 @@ test: all
 	@./a.out
 	@rm ./a.out *.txt
 
+# <-- Debug --> #
+debug: fclean
+	@make -s WITH_DEBUG=1
+
 # <-- Targets Declaration --> #
-.PHONY = all clean fclean re test
+.PHONY = all clean debug fclean re test
 
 # ========================================================================== #
