@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/02/13 15:56:55 by ribana-b         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:50:56 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -478,6 +478,49 @@ int					ft_printf(const char *str, ...);
  * is a memory allocation failure, the function returns NULL.
  */
 char				*get_next_line(int fd);
+/* ==========================================================================*/
+
+/* ==========================================================================*/
+/* Math */
+
+/**
+ * @brief Calculate the Greatest Common Divisor.
+ *
+ * @details Calculate the Greatest Common Divisor using the
+ * Euclidean algorithm.
+ *
+ * @param number1 The first number, must be positive.
+ * @param number2 The second number, must be positive.
+ *
+ * @retval The Greatest Common Divisor between number1 and number2.
+ */
+size_t				ft_gcd(size_t number1, size_t number2);
+
+/**
+ * @brief Calculate the Least Common Multiple.
+ *
+ * @details Calculate the Least Common Multiple using the
+ * formula lcm(a, b) = a * b / gcd(a, b).
+ *
+ * @param number1 The first number, must be positive.
+ * @param number2 The second number, must be positive.
+ *
+ * @retval - The Least Common Multiple between number1 and number2.
+ * @retval - 0 If number1 and number2 are 0.
+ */
+unsigned long		ft_lcm(size_t number1, size_t number2);
+
+/**
+ * @brief Calculate the nth power of a number.
+ *
+ * @details Calculate the nth power of a number.
+ *
+ * @param number The base number.
+ * @param exponent The exponent of the number.
+ *
+ * @retval The result of number^exponent.
+ */
+double				ft_pow(double number, int exponent);
 /* ==========================================================================*/
 
 /* ==========================================================================*/

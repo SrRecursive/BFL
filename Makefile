@@ -55,6 +55,7 @@ DATA_STRUCTURE_DIR = linked_list/
 FD_DIR = fd/
 FT_PRINTF_DIR = ft_printf/
 GET_NEXT_LINE_DIR = get_next_line/
+MATH_DIR = math/
 MEMORY_DIR = memory/
 STRING_DIR = string/
 OBJ_DIR = obj/
@@ -88,6 +89,10 @@ FD_FILES = ft_putaddress_fd.c \
 FT_PRINTF_FILES = ft_printf.c
 
 GET_NEXT_LINE_FILES = get_next_line.c
+
+MATH_FILES = ft_gcd.c \
+			 ft_lcm.c \
+			 ft_pow.c
 
 MEMORY_FILES = ft_bzero.c \
 				ft_calloc.c \
@@ -124,6 +129,7 @@ DATA_STRUCTURE = $(addprefix $(DATA_STRUCTURE_DIR), $(DATA_STRUCTURE_FILES))
 FD = $(addprefix $(FD_DIR), $(FD_FILES))
 FT_PRINTF = $(addprefix $(FT_PRINTF_DIR), $(FT_PRINTF_FILES))
 GET_NEXT_LINE = $(addprefix $(GET_NEXT_LINE_DIR), $(GET_NEXT_LINE_FILES))
+MATH = $(addprefix $(MATH_DIR), $(MATH_FILES))
 MEMORY = $(addprefix $(MEMORY_DIR), $(MEMORY_FILES))
 STRING = $(addprefix $(STRING_DIR), $(STRING_FILES))
 
@@ -134,6 +140,7 @@ OBJ = $(patsubst $(BOOL_DIR)%.c, $(OBJ_DIR)%.o, $(BOOL)) \
 		$(patsubst $(FD_DIR)%.c, $(OBJ_DIR)%.o, $(FD)) \
 		$(patsubst $(FT_PRINTF_DIR)%.c, $(OBJ_DIR)%.o, $(FT_PRINTF)) \
 		$(patsubst $(GET_NEXT_LINE_DIR)%.c, $(OBJ_DIR)%.o, $(GET_NEXT_LINE)) \
+		$(patsubst $(MATH_DIR)%.c, $(OBJ_DIR)%.o, $(MATH)) \
 		$(patsubst $(MEMORY_DIR)%.c, $(OBJ_DIR)%.o, $(MEMORY)) \
 		$(patsubst $(STRING_DIR)%.c, $(OBJ_DIR)%.o, $(STRING)) \
 
@@ -179,6 +186,11 @@ $(OBJ_DIR)%.o: $(FT_PRINTF_DIR)%.c
 	@echo "🔨 🦔 $(T_BLUE)$(BOLD)$@ $(RESET)$(T_GREEN)created!$(RESET)"
 
 $(OBJ_DIR)%.o: $(GET_NEXT_LINE_DIR)%.c
+	@echo "🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
+	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	@echo "🔨 🦔 $(T_BLUE)$(BOLD)$@ $(RESET)$(T_GREEN)created!$(RESET)"
+
+$(OBJ_DIR)%.o: $(MATH_DIR)%.c
 	@echo "🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 	@echo "🔨 🦔 $(T_BLUE)$(BOLD)$@ $(RESET)$(T_GREEN)created!$(RESET)"
