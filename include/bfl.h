@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:10:14 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/03/04 16:50:56 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/03/22 15:25:31 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,17 @@
 /* ==========================================================================*/
 
 /* <-- Structs Section --> */
+
+/* ==========================================================================*/
+/* ft_fprintf */
+
+typedef struct s_print
+{
+	int		index;
+	int		bytes;
+	int		success;
+}				t_print;
+/* ==========================================================================*/
 
 /* ==========================================================================*/
 /* Linked List */
@@ -87,8 +98,8 @@ typedef struct s_dll
  *
  * @param character The integer value to be checked for alphanumeric validity.
  *
- * @retval - 1 if the character is a valid alphanumeric character.
- * @retval - 0 otherwise.
+ * @return - 1 if the character is a valid alphanumeric character.
+ * @return - 0 otherwise.
  */
 int					ft_isalnum(int character);
 
@@ -100,8 +111,8 @@ int					ft_isalnum(int character);
  *
  * @param character The integer value to be checked for alphabet validity.
  *
- * @retval - 1 if the character is a valid alphabet character.
- * @retval - 0 otherwise.
+ * @return - 1 if the character is a valid alphabet character.
+ * @return - 0 otherwise.
  */
 int					ft_isalpha(int character);
 
@@ -114,8 +125,8 @@ int					ft_isalpha(int character);
  *
  * @param character The integer value to be checked for alpha validity.
  *
- * @retval - 1 if the character is a valid alpha character.
- * @retval - 0 otherwise.
+ * @return - 1 if the character is a valid alpha character.
+ * @return - 0 otherwise.
  */
 int					ft_isascii(int character);
 
@@ -127,8 +138,8 @@ int					ft_isascii(int character);
  *
  * @param character The integer value to be checked for blank validity.
  *
- * @retval - 1 if the character is a valid blank character.
- * @retval - 0 otherwise.
+ * @return - 1 if the character is a valid blank character.
+ * @return - 0 otherwise.
  */
 int					ft_isblank(int character);
 
@@ -141,8 +152,8 @@ int					ft_isblank(int character);
  *
  * @param character The integer value to be checked for digit validity.
  *
- * @retval - 1 if the character is a valid digit character.
- * @retval - 0 otherwise.
+ * @return - 1 if the character is a valid digit character.
+ * @return - 0 otherwise.
  */
 int					ft_isdigit(int character);
 
@@ -156,8 +167,8 @@ int					ft_isdigit(int character);
  * @param character The integer value to be checked for lowercase alphabetic
  * validity.
  *
- * @retval - 1 if the character is a valid lowercase alphabetic character
- * @retval - 0 otherwise.
+ * @return - 1 if the character is a valid lowercase alphabetic character
+ * @return - 0 otherwise.
  */
 int					ft_islower(int character);
 
@@ -171,8 +182,8 @@ int					ft_islower(int character);
  * @param character The integer value to be checked for printable character
  * validity.
  *
- * @retval - 1 if the character is a printable character.
- * @retval - 0 otherwise.
+ * @return - 1 if the character is a printable character.
+ * @return - 0 otherwise.
  */
 int					ft_isprint(int character);
 
@@ -186,8 +197,8 @@ int					ft_isprint(int character);
  * @param character The integer value to be checked for uppercase alphabetic
  * validity.
  *
- * @retval - 1 if the character is a valid uppercase alphabetic character.
- * @retval - 0 otherwise.
+ * @return - 1 if the character is a valid uppercase alphabetic character.
+ * @return - 0 otherwise.
  */
 int					ft_isupper(int character);
 
@@ -202,8 +213,8 @@ int					ft_isupper(int character);
  * @param character The integer value to be checked for hexadecimal digit
  * validity.
  *
- * @retval - 1 if the character is a valid hexadecimal digit.
- * @retval - 0 otherwise.
+ * @return - 1 if the character is a valid hexadecimal digit.
+ * @return - 0 otherwise.
  */
 int					ft_isxdigit(int character);
 /* ========================================================================= */
@@ -220,8 +231,8 @@ int					ft_isxdigit(int character);
  * @param character The integer value to be checked for uppercase character
  * validity.
  *
- * @retval - character lowercased.
- * @retval - character unmodified.
+ * @return - character lowercased.
+ * @return - character unmodified.
  */
 int					ft_tolower(int character);
 
@@ -234,8 +245,8 @@ int					ft_tolower(int character);
  * @param character The integer value to be checked for lowercase character
  * validity.
  *
- * @retval - character uppercased.
- * @retval - character unmodified.
+ * @return - character uppercased.
+ * @return - character unmodified.
  */
 int					ft_toupper(int character);
 /* ========================================================================= */
@@ -248,8 +259,8 @@ int					ft_toupper(int character);
  *
  * @details This function allocates memory for a new linked list node.
  *
- * @retval - A pointer to the newly created linked list node.
- * @retval - NULL if memory allocation fails.
+ * @return - A pointer to the newly created linked list node.
+ * @return - NULL if memory allocation fails.
  *
  * @note The caller is responsible for freeing the memory allocated.
  */
@@ -274,8 +285,8 @@ void				ll_add_node(t_ll **linked_list);
  *
  * @param length The length of the linked list to generate.
  *
- * @retval - A pointer to the head of the generated linked list.
- * @retval - NULL if memory allocation fails.
+ * @return - A pointer to the head of the generated linked list.
+ * @return - NULL if memory allocation fails.
  *
  * @note The caller is responsible for freeing the memory allocated.
  */
@@ -313,8 +324,8 @@ void				ll_destroy(t_ll **linked_list);
  * @param character The character to be put in the file descriptor.
  * @param fd The file descriptor where the character is going to be put.
  *
- * @retval - 1 if it writes the character correctly.
- * @retval - -1 if there's an error writing the character.
+ * @return - 1 if it writes the character correctly.
+ * @return - -1 if there's an error writing the character.
  */
 int					ft_putchar_fd(char character, int fd);
 
@@ -326,8 +337,8 @@ int					ft_putchar_fd(char character, int fd);
  * @param str The string to be put in the file descriptor.
  * @param fd The file descriptor where the character is going to be put.
  *
- * @retval - 1 if it writes the string correctly.
- * @retval - -1 if there's an error writing the string.
+ * @return - 1 if it writes the string correctly.
+ * @return - -1 if there's an error writing the string.
  *
  * @note If the string is null, it writes (null).
  */
@@ -342,8 +353,8 @@ int					ft_putstr_fd(const char *str, int fd);
  * @param str The string to be put in the file descriptor.
  * @param fd The file descriptor where the character is going to be put.
  *
- * @retval - 1 if it writes the string correctly.
- * @retval - -1 if there's an error writing the string.
+ * @return - 1 if it writes the string correctly.
+ * @return - -1 if there's an error writing the string.
  */
 int					ft_putendl_fd(const char *str, int fd);
 
@@ -355,8 +366,8 @@ int					ft_putendl_fd(const char *str, int fd);
  * @param number The integer to be written.
  * @param fd The file descriptor where the integer will be written.
  *
- * @retval - The number of bytes written on success.
- * @retval - -1 if the file descriptor is invalid or if there are
+ * @return - The number of bytes written on success.
+ * @return - -1 if the file descriptor is invalid or if there are
  * memory allocation or writing errors.
  */
 int					ft_putnbr_fd(int number, int fd);
@@ -374,8 +385,8 @@ int					ft_putnbr_fd(int number, int fd);
  * @param fd The file descriptor to write the hexadecimal representation
  * (lowercase) to.
  *
- * @retval The total number of bytes written
- * @retval -1 in case of an error.
+ * @return The total number of bytes written
+ * @return -1 in case of an error.
  */
 int					ft_puthexl_fd(unsigned long long n, int fd);
 
@@ -392,8 +403,8 @@ int					ft_puthexl_fd(unsigned long long n, int fd);
  * @param fd The file descriptor to write the hexadecimal representation
  * (uppercase) to.
  *
- * @retval The total number of bytes written
- * @retval -1 in case of an error.
+ * @return The total number of bytes written
+ * @return -1 in case of an error.
  */
 int					ft_puthexu_fd(unsigned long long n, int fd);
 
@@ -409,8 +420,8 @@ int					ft_puthexu_fd(unsigned long long n, int fd);
  * @param number The unsigned integer to convert and write.
  * @param fd The file descriptor to write the decimal representation to.
  *
- * @retval The total number of bytes written
- * @retval -1 in case of an error.
+ * @return The total number of bytes written
+ * @return -1 in case of an error.
  */
 int					ft_putunbr_fd(unsigned int number, int fd);
 
@@ -426,8 +437,8 @@ int					ft_putunbr_fd(unsigned int number, int fd);
  * @param ptr The pointer to be printed.
  * @param fd The file descriptor to write the hexadecimal representation to.
  *
- * @retval The total number of bytes written
- * @retval -1 in case of an error.
+ * @return The total number of bytes written
+ * @return -1 in case of an error.
  */
 int					ft_putaddress_fd(unsigned long long ptr, int fd);
 /* ==========================================================================*/
@@ -448,10 +459,29 @@ int					ft_putaddress_fd(unsigned long long ptr, int fd);
  * @param ... Variable arguments corresponding to the format specifiers
  * in the format string.
  *
- * @retval The total number of bytes written to the standard output
- * @retval -1 in case of an error.
+ * @return The total number of bytes written to the standard output
+ * @return -1 in case of an error.
  */
 int					ft_printf(const char *str, ...);
+
+/**
+ * @brief Custom fprintf implementation with limited format specifiers.
+ *
+ * @details This function emulates the behavior of fprintf for a subset
+ * of format specifiers. It supports the following format
+ * specifiers: %c (character), %s (string), %d or %i (decimal/integer),
+ * %u (unsigned decimal/integer), %x (hexadecimal lowercase),
+ * %X (hexadecimal uppercase), and %p (pointer).
+ *
+ * @param fd The file descriptor to output the string.
+ * @param str The format string containing format specifiers.
+ * @param ... Variable arguments corresponding to the format specifiers
+ * in the format string.
+ *
+ * @return The total number of bytes written to the standard output
+ * @return -1 in case of an error.
+ */
+int					ft_fprintf(int fd, const char *str, ...);
 /* ==========================================================================*/
 
 /* ==========================================================================*/
@@ -469,8 +499,8 @@ int					ft_printf(const char *str, ...);
  *
  * @param fd The file descriptor from which to read the line.
  *
- * @retval A pointer to the line read from the file descriptor
- * @retval NULL if there is an error or the end of file is reached.
+ * @return A pointer to the line read from the file descriptor
+ * @return NULL if there is an error or the end of file is reached.
  *
  * @note The caller is responsible for freeing the memory allocated for the
  * returned line. The function uses a static variable to maintain content
@@ -492,7 +522,7 @@ char				*get_next_line(int fd);
  * @param number1 The first number, must be positive.
  * @param number2 The second number, must be positive.
  *
- * @retval The Greatest Common Divisor between number1 and number2.
+ * @return The Greatest Common Divisor between number1 and number2.
  */
 size_t				ft_gcd(size_t number1, size_t number2);
 
@@ -505,8 +535,8 @@ size_t				ft_gcd(size_t number1, size_t number2);
  * @param number1 The first number, must be positive.
  * @param number2 The second number, must be positive.
  *
- * @retval - The Least Common Multiple between number1 and number2.
- * @retval - 0 If number1 and number2 are 0.
+ * @return - The Least Common Multiple between number1 and number2.
+ * @return - 0 If number1 and number2 are 0.
  */
 unsigned long		ft_lcm(size_t number1, size_t number2);
 
@@ -518,7 +548,7 @@ unsigned long		ft_lcm(size_t number1, size_t number2);
  * @param number The base number.
  * @param exponent The exponent of the number.
  *
- * @retval The result of number^exponent.
+ * @return The result of number^exponent.
  */
 double				ft_pow(double number, int exponent);
 /* ==========================================================================*/
@@ -563,9 +593,9 @@ void				ft_bzero(void *ptr, size_t bytes);
  * @param bytes The total number of bytes to allocate memory for.
  * @param size_type The size (in bytes) of each element.
  *
- * @retval - A pointer with memory allocated and set with null characters if
+ * @return - A pointer with memory allocated and set with null characters if
  * successful.
- * @retval - A NULL pointer if the allocation fails.
+ * @return - A NULL pointer if the allocation fails.
  *
  * @note The caller is responsible for freeing the memory allocated.
  */
@@ -581,8 +611,8 @@ void				*ft_calloc(size_t bytes, size_t size_type);
  * @param character Value of the byte to be located (as an integer).
  * @param bytes Number of bytes to be searched.
  *
- * @retval - A pointer to the first ocurrence of character in the memory block
- * @retval - NULL if c is not found or ptr is NULL.
+ * @return - A pointer to the first ocurrence of character in the memory block
+ * @return - NULL if c is not found or ptr is NULL.
  */
 void				*ft_memchr(const void *ptr, int character, size_t bytes);
 
@@ -596,7 +626,7 @@ void				*ft_memchr(const void *ptr, int character, size_t bytes);
  * @param str2 Pointer to the source memory block.
  * @param bytes Number of bytes to copy.
  *
- * @retval - A pointer to the destination memory block str after copying.
+ * @return - A pointer to the destination memory block str after copying.
  * @reval - NULL if either str or str2 is NULL.
  *
  */
@@ -613,8 +643,8 @@ void				*ft_memcpy(void *str, const void *str2, size_t bytes);
  * @param str2 Pointer to the source memory block.
  * @param bytes Number of bytes to copy.
  *
- * @retval - A pointer to the destination memory block (str) after copying.
- * @retval - NULL if either str or str2 is NULL.
+ * @return - A pointer to the destination memory block (str) after copying.
+ * @return - NULL if either str or str2 is NULL.
  *
  * @note If there is an overlap between the source and destination memory
  * blocks, the function uses a byte-by-byte copy to ensure correct results.
@@ -634,7 +664,7 @@ void				*ft_memmove(void *str, const void *str2, size_t bytes);
  * @param str2 Pointer to the second memory block to be compared.
  * @param bytes Number of bytes to compare.
  *
- * @retval - An integer greater than, equal to, or less than 0
+ * @return - An integer greater than, equal to, or less than 0
  * if the first bytes of str are greater than, equal to, or
  * less than the first bytes of str2 respectively
  */
@@ -669,8 +699,8 @@ void				*ft_free(void *ptr_address, size_t asterisk_amount);
  *
  * @param str The string that will be used to calculate the length.
  *
- * @retval - The length of the string.
- * @retval - 0 if str is empty or NULL.
+ * @return - The length of the string.
+ * @return - 0 if str is empty or NULL.
  */
 size_t				ft_strlen(const char *str);
 
@@ -682,8 +712,8 @@ size_t				ft_strlen(const char *str);
  * @param str The first string that will be used to create the new string.
  * @param str2 The string that will be used to calculate the length.
  *
- * @retval - The new string created by joining str and str2.
- * @retval - NULL if fails allocating memory for the new string.
+ * @return - The new string created by joining str and str2.
+ * @return - NULL if fails allocating memory for the new string.
  *
  * @note The caller is responsible for freeing the memory allocated for
  * the new string.
@@ -702,9 +732,9 @@ char				*ft_strjoin(const char *str, const char *str2);
  * @param str2 Pointer to the second string to be compared.
  * @param bytes Number of characters to compare.
  *
- * @retval - An integer greater than, equal to, or less than 0 if the
+ * @return - An integer greater than, equal to, or less than 0 if the
  * first bytes characters of str2, respectively.
- * @retval - -1 if either str or str2 is NULL.
+ * @return - -1 if either str or str2 is NULL.
  */
 int					ft_strncmp(const char *str, const char *str2, size_t bytes);
 
@@ -719,7 +749,7 @@ int					ft_strncmp(const char *str, const char *str2, size_t bytes);
  *
  * @param str Pointer to the string to be converted.
  *
- * @retval - The converted integer value.
+ * @return - The converted integer value.
  *
  * @note If the string is not a valid integer representation, the behavior
  * is undefined.
@@ -737,7 +767,7 @@ int					ft_atoi(const char *str);
  *
  * @param str Pointer to the string to be converted
  *
- * @retval - The converted long integer value.
+ * @return - The converted long integer value.
  *
  * @note If the string is "-9223372036854775808", the function returns
  * -9223372036854775807LL - 1 to avoid an unsigned integer constant
@@ -755,9 +785,9 @@ long int			ft_atol(const char *str);
  *
  * @param str Pointer to the string to be duplicated.
  *
- * @retval - A pointer to the newly allocated string with the same content
+ * @return - A pointer to the newly allocated string with the same content
  * as str.
- * @retval - NULL if str is NULL or if memory allocation fails.
+ * @return - NULL if str is NULL or if memory allocation fails.
  *
  * @note The duplicated string is dynamically allocated and should be
  * freed by the caller when no longer needed.
@@ -779,10 +809,10 @@ char				*ft_strdup(const char *str);
  * @param bytes The maximum number of characters to copy, including
  * the null-terminator.
  *
- * @retval - The total length of the concatenated strings str and str2
+ * @return - The total length of the concatenated strings str and str2
  * if successful.
- * @retval - The length of str2 + bytes if str is not large enough.
- * @retval - 0 if either str or str2 is NULL.
+ * @return - The length of str2 + bytes if str is not large enough.
+ * @return - 0 if either str or str2 is NULL.
  */
 size_t				ft_strlcpy(char *str, const char *str2, size_t bytes);
 
@@ -800,9 +830,9 @@ size_t				ft_strlcpy(char *str, const char *str2, size_t bytes);
  * @param bytes The size of the buffer, indicating the maximum
  * allowed length for the resulting string in str.
  *
- * @retval - The total length of the concatenated strings (excluding
+ * @return - The total length of the concatenated strings (excluding
  * the null terminator) if the operation is successful.
- * @retval - 0 if either str or str is NULL.
+ * @return - 0 if either str or str is NULL.
  */
 size_t				ft_strlcat(char *str, const char *str2, size_t bytes);
 
@@ -818,9 +848,9 @@ size_t				ft_strlcat(char *str, const char *str2, size_t bytes);
  * @param str2 The substring to search for.
  * @param bytes The maximum number of bytes to search in the string.
  *
- * @retval - A pointer to the first occurrence of str2 in str within
+ * @return - A pointer to the first occurrence of str2 in str within
  * the specified number of bytes.
- * @retval - NULL if str or str2 is NULL or if the substring is not
+ * @return - NULL if str or str2 is NULL or if the substring is not
  * found.
  *
  * @note If str2 is an empty string, the function returns a pointer
@@ -839,8 +869,8 @@ char				*ft_strnstr(const char *str, const char *str2,
  * @param str The string to be searched.
  * @param character The character to be located.
  *
- * @retval - A pointer to the located character in the string.
- * @retval - NULL if the character is not found or if the input
+ * @return - A pointer to the located character in the string.
+ * @return - NULL if the character is not found or if the input
  * string is NULL.
  *
  */
@@ -857,9 +887,9 @@ char				*ft_strchr(const char *str, int character);
  * @param str A pointer to the null-terminated string to be searched.
  * @param character The character to be located (as an integer).
  *
- * @retval - A pointer to the last occurrence of the character in
+ * @return - A pointer to the last occurrence of the character in
  * the string.
- * @retval - NULL if the character is not found or if str is NULL.
+ * @return - NULL if the character is not found or if str is NULL.
  */
 char				*ft_strrchr(const char *str, int character);
 
@@ -875,8 +905,8 @@ char				*ft_strrchr(const char *str, int character);
  * @param start The starting index of the substring.
  * @param bytes The number of bytes in the substring.
  *
- * @retval - A dynamically allocated substring.
- * @retval - NULL if memory allocation fails or if the input is NULL.
+ * @return - A dynamically allocated substring.
+ * @return - NULL if memory allocation fails or if the input is NULL.
  *
  * @note The substring is dynamically allocated and should be
  * freed by the caller when no longer needed.
@@ -892,8 +922,8 @@ char				*ft_substr(const char *str, size_t start, size_t bytes);
  * @param str The input string.
  * @param str2 The characters to trim from the string.
  *
- * @retval - A dinamically allocated trimmed string.
- * @retval - NULL if memory allocation fails or if either str or
+ * @return - A dinamically allocated trimmed string.
+ * @return - NULL if memory allocation fails or if either str or
  * str2 is NULL.
  *
  * @note The trimmed string is dynamically allocated and should be
@@ -914,9 +944,9 @@ char				*ft_strtrim(const char *str, const char *str2);
  * @f A function taking an unsigned integer index and a character
  * as parameters, and returning a modified character.
  *
- * @retval - A dynamically allocated string with the modified
+ * @return - A dynamically allocated string with the modified
  * characters.
- * @retval - NULL if memory allocation fails or if the input string
+ * @return - NULL if memory allocation fails or if the input string
  * or function is NULL.
  *
  * @note The resulting string is dynamically allocated and should
@@ -948,9 +978,9 @@ void				ft_striteri(char *str, void (*f)(unsigned int, char *));
  *
  * @param number The integer to convert.
  *
- * @retval - A dynamically allocated string representation of the
+ * @return - A dynamically allocated string representation of the
  * integer.
- * @retval - NULL if the memory allocation fails.
+ * @return - NULL if the memory allocation fails.
  *
  * @note The resulting string is dynamically allocated and should
  * be freed by the caller when no longer needed.
@@ -969,9 +999,9 @@ char				*ft_itoa(int number);
  * @param character The character used as the delimiter for splitting
  * the string.
  *
- * @retval - A dynamically allocated array of strings representing
+ * @return - A dynamically allocated array of strings representing
  * the substrings.
- * @retval - NULL if memory allocation fails or if str is NULL.
+ * @return - NULL if memory allocation fails or if str is NULL.
  *
  * @note The returned array of strings is terminated by a NULL pointer.
  * It is the caller's responsibility to free the memory allocated for

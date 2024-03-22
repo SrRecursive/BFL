@@ -90,7 +90,8 @@ FD_FILES = ft_putaddress_fd.c \
 			ft_putstr_fd.c \
 			ft_putunbr_fd.c
 
-FT_PRINTF_FILES = ft_printf.c
+FT_PRINTF_FILES = ft_printf.c \
+					ft_fprintf.c
 
 GET_NEXT_LINE_FILES = get_next_line.c
 
