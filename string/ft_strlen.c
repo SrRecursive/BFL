@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 11:09:30 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/02/14 12:48:59 by ribana-b         ###   ########.fr       */
+/*   Created: 2024/03/22 15:47:13 by ribana-b          #+#    #+# Malaga      */
+/*   Updated: 2024/03/22 15:47:13 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 

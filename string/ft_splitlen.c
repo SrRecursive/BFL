@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_splitlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 17:19:07 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/02/14 12:48:59 by ribana-b         ###   ########.fr       */
+/*   Created: 2024/03/22 15:47:00 by ribana-b          #+#    #+# Malaga      */
+/*   Updated: 2024/03/22 15:47:01 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
