@@ -6,7 +6,7 @@
 #    By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 15:47:45 by ribana-b          #+#    #+# Malaga       #
-#    Updated: 2024/03/22 15:47:47 by ribana-b         ###   ########.com       #
+#    Updated: 2024/03/24 14:54:42 by ribana-b         ###   ########.com       #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ RESET = \033[0m
 # ========================================================================== #
 
 # <-- Library's Name --> #
-NAME = libbfl.a
+NAME = libBFL.a
 
 # <-- Compilation Command --> #
 CC = cc

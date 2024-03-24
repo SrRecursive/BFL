@@ -38,7 +38,7 @@ Compile the library and link it to your project
 
 ```Shell
 make -C BFL
-gcc main.c -L./BFL -lbfl -I BFL/include
+gcc main.c -L./BFL -lBFL -I BFL/include
 ```
 
 > [!NOTE]
@@ -46,12 +46,12 @@ gcc main.c -L./BFL -lbfl -I BFL/include
 > Remember to include the header file in your project
 >
 > ```C
-> #include "bfl.h"
+> #include "BFL.h"
 >
 > int main(int argc, char **argv)
 > {
 >     ft_printf("Hello World\n");
->     return (0);
+>     return (OK);
 > }
 > ```
 

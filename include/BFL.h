@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bfl.h                                              :+:      :+:    :+:   */
+/*   BFL.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:21 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/03/22 15:46:21 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/03/24 15:15:04 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,60 +27,97 @@
 # include <unistd.h>
 /* ==========================================================================*/
 
+/* <-- Typedef Section --> */
+
+/* ==========================================================================*/
+
+typedef enum e_bool			t_bool;
+typedef struct s_print		t_print;
+typedef struct s_ll			t_ll;
+typedef struct s_dll		t_dll;
+/* ==========================================================================*/
+
+/* <-- Enum Section --> */
+
+/* ==========================================================================*/
+
+/**
+ * @brief Custom bool
+ *
+ */
+enum e_bool
+{
+	FALSE,	/**< 0 */
+	TRUE,	/**< 1 */
+};
+
+/**
+ * @brief Custom fd
+ */
+enum e_fd
+{
+	STDIN,	/**< 0 */
+	STDOUT,	/**< 1 */
+	STDERR,	/**< 2 */
+};
+
+/**
+ * @brief Custom exit status
+ */
+enum e_exit_status
+{
+	OK,					/**< 0 */
+	KO,					/**< 1 */
+	RIP_MALLOC,			/**< 2 */
+	INVALID_ARGC,		/**< 3 */
+	EXIT_STATUS_LIMIT,	/**< Amount of enums */
+};
+/* ==========================================================================*/
+
 /* <-- Structs Section --> */
 
 /* ==========================================================================*/
 /* ft_fprintf */
 
-typedef struct s_print
+/**
+ * @struct s_print
+ * @brief Structure with information needed for printf functions.
+ */
+struct s_print
 {
-	int		index;
-	int		bytes;
-	int		success;
-}				t_print;
+	int		index; /**< Index for the string being read. */
+	int		bytes; /**< Total amount of bytes read. */
+	int		success; /**< Amount of bytes read successfully. */
+};
 /* ==========================================================================*/
 
 /* ==========================================================================*/
 /* Linked List */
 
 /**
- * @struct t_ll
- * @brief Typedef for struct s_ll which is a structure representing
- * a node in a linked list.
- *
- * @var t_ll::content
- * Pointer to the content of the current node.
- * @var t_ll::next
- * Pointer to the next node in the linked list.
+ * @struct s_ll
+ * @brief Structure representing a node in a linked list.
  */
-typedef struct s_ll
+struct s_ll
 {
-	void			*content;
-	struct s_ll		*next;
-}					t_ll;
+	void	*content; /**< Pointer to the content of the current node. */
+	t_ll	*next; /**< Pointer to the next node. */
+};
 /* ==========================================================================*/
 
 /* ==========================================================================*/
 /* Doubly Linked List */
 
 /**
- * @struct t_dll
- * @brief Typedef for struct s_dll which is a structure representing
- * a node in a double linked list.
- *
- * @var t_dll::content
- * Pointer to the content of the current node.
- * @var t_dll::previous
- * Pointer to the previous node in the linked list.
- * @var t_dll::next
- * Pointer to the next node of the linked list.
+ * @struct s_dll
+ * @brief Structure representing * a node in a double linked list.
  */
-typedef struct s_dll
+struct s_dll
 {
-	void			*content;
-	struct s_dll	*previous;
-	struct s_dll	*next;
-}					t_dll;
+	void	*content; /**< Pointer to the content of the current node. */
+	t_dll	*previous; /**< Pointer to the previous node. */
+	t_dll	*next; /**< Pointer to the next node */
+};
 /* ==========================================================================*/
 
 /* <--Functions Section--> */

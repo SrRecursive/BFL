@@ -6,14 +6,14 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:47:41 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/03/22 15:47:41 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/03/24 14:53:48 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bool_test.c"
 #include "char_test.c"
 #include "fd_test.c"
-#include "bfl.h"
+#include "BFL.h"
 #include <stdio.h>
 #include <unistd.h>
 
