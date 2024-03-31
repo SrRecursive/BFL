@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:21 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/03/31 23:09:53 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/03/31 23:19:14 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -742,8 +742,8 @@ void				*ft_free(void *ptr_address, size_t asterisk_amount);
  * @note ptr must be initialised to NULL or with allocated memory.
  * @note The caller is responsible for freeing the memory allocated.
  */
-void				*ft_realloc(void *ptr,
-			size_t current_size, size_t new_size, size_t element_size);
+void				*ft_realloc(void *ptr, size_t current_size, size_t new_size,
+						size_t element_size);
 /* ==========================================================================*/
 
 /* ==========================================================================*/
