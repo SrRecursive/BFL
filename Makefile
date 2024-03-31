@@ -6,7 +6,7 @@
 #    By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 15:47:45 by ribana-b          #+#    #+# Malaga       #
-#    Updated: 2024/03/24 14:54:42 by ribana-b         ###   ########.com       #
+#    Updated: 2024/03/31 22:57:51 by ribana-b         ###   ########.com       #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,7 +118,8 @@ MEMORY_FILES = ft_bzero.c \
 				ft_memcmp.c \
 				ft_memcpy.c \
 				ft_memmove.c \
-				ft_memset.c 
+				ft_memset.c \
+				ft_realloc.c
 
 STRING_FILES = ft_atoi.c \
 				ft_atol.c \

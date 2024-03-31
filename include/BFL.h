@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:21 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/03/24 15:15:04 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/03/31 23:09:53 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -724,6 +724,26 @@ int					ft_memcmp(const void *str, const void *str2, size_t bytes);
  * must be NULL terminated.
  */
 void				*ft_free(void *ptr_address, size_t asterisk_amount);
+
+/**
+ * @brief Reallocate a pointer with a specified size.
+ *
+ * @details This function reallocates a pointer with a new specified size.
+ *
+ * @param ptr Pointer to be reallocated.
+ * @param current_size Current used size of ptr.
+ * @param new_size New size of ptr.
+ * @param element_size Size of the elements of ptr.
+ *
+ * @return - ptr if reallocation is successful.
+ * @return - NULL if reallocation fails or either new_size or element_size
+ * is 0.
+ *
+ * @note ptr must be initialised to NULL or with allocated memory.
+ * @note The caller is responsible for freeing the memory allocated.
+ */
+void				*ft_realloc(void *ptr,
+			size_t current_size, size_t new_size, size_t element_size);
 /* ==========================================================================*/
 
 /* ==========================================================================*/
