@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 13:03:52 by ribana-b          #+#    #+#             */
-/*   Updated: 2024/03/24 14:41:29 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/05/13 22:45:14 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	ft_putstr_fd(const char *str, int fd)
 {
 	int	bytes_written;
-	int	counter;
 	int	success;
 
 	if (fd < 0)
@@ -27,15 +26,9 @@ int	ft_putstr_fd(const char *str, int fd)
 			return (-1);
 		return (success);
 	}
-	counter = 0;
-	bytes_written = 0;
-	while (str[counter] != '\0')
-	{
-		success = ft_putchar_fd(str[counter], fd);
-		if (success < 0)
-			return (-1);
-		bytes_written += success;
-		counter++;
-	}
+	success = write(fd, str, ft_strlen(str));
+	if (success < 0)
+		return (-1);
+	bytes_written = success;
 	return (bytes_written);
 }
