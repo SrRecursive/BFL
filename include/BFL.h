@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:21 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/03/31 23:19:14 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/05/20 13:58:04 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -588,6 +588,18 @@ unsigned long		ft_lcm(size_t number1, size_t number2);
  * @return The result of number^exponent.
  */
 double				ft_pow(double number, int exponent);
+
+/**
+ * @brief Calculate the square root of a number.
+ *
+ * @details Calculate the square root of a number.
+ *
+ * @param number The base number.
+ *
+ * @return - The square root of number.
+ * @return - -1 if number is negative.
+ */
+double				ft_sqrt(double number);
 /* ==========================================================================*/
 
 /* ==========================================================================*/
@@ -1084,5 +1096,4 @@ char				**ft_split(const char *str, char character);
  */
 size_t				ft_splitlen(char **split);
 /* ==========================================================================*/
-
 #endif

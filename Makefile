@@ -6,7 +6,7 @@
 #    By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 15:47:45 by ribana-b          #+#    #+# Malaga       #
-#    Updated: 2024/03/31 22:57:51 by ribana-b         ###   ########.com       #
+#    Updated: 2024/05/20 13:40:14 by ribana-b         ###   ########.com       #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,9 @@ T_WHITE = \033[37m
 
 # <-- Text Style --> #
 BOLD = \033[1m
-ITALIC = \033[2m
-UNDERLINE = \033[3m
-STRIKETHROUGH = \033[4m
+ITALIC = \033[3m
+UNDERLINE = \033[4m
+STRIKETHROUGH = \033[5m
 
 # <-- Background Color --> #
 B_BLACK = \033[40m
@@ -40,10 +40,16 @@ B_MAGENTA = \033[45m
 B_CYAN = \033[46m
 B_WHITE = \033[47m
 
+# <-- Cursor -- > #
+
+CLEAR_LINE = \033[1F\r\033[2K
+
 # <-- Reset Everything --> #
 RESET = \033[0m
 
 # ========================================================================== #
+
+MSG = @echo "$(CLEAR_LINE)🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
 
 # <-- Library's Name --> #
 NAME = libBFL.a
@@ -109,7 +115,8 @@ GET_NEXT_LINE_FILES = get_next_line.c
 
 MATH_FILES = ft_gcd.c \
 			 ft_lcm.c \
-			 ft_pow.c
+			 ft_pow.c \
+			 ft_sqrt.c
 
 MEMORY_FILES = ft_bzero.c \
 				ft_calloc.c \
@@ -160,7 +167,7 @@ OBJ = $(patsubst $(BOOL_DIR)%.c, $(OBJ_DIR)%.o, $(BOOL)) \
 		$(patsubst $(GET_NEXT_LINE_DIR)%.c, $(OBJ_DIR)%.o, $(GET_NEXT_LINE)) \
 		$(patsubst $(MATH_DIR)%.c, $(OBJ_DIR)%.o, $(MATH)) \
 		$(patsubst $(MEMORY_DIR)%.c, $(OBJ_DIR)%.o, $(MEMORY)) \
-		$(patsubst $(STRING_DIR)%.c, $(OBJ_DIR)%.o, $(STRING)) \
+		$(patsubst $(STRING_DIR)%.c, $(OBJ_DIR)%.o, $(STRING))
 
 # ========================================================================== #
 
@@ -169,7 +176,7 @@ all: $(NAME)
 
 # <-- Library Creation --> #
 $(NAME): $(OBJ_DIR) $(OBJ)
-	@echo "✅ 🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_GREEN)created successfully$(RESET)"
+	@echo "$(CLEAR_LINE)✅ 🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_GREEN)created successfully$(RESET)"
 	@ar rcs $@ $(OBJ)
 	@echo "✅ 🦔 $(T_MAGENTA)$(BOLD)$(NAME) $(RESET)$(T_GREEN)created successfully$(RESET)"
 
@@ -179,49 +186,40 @@ $(OBJ_DIR):
 
 # <-- Objects Creation --> #
 $(OBJ_DIR)%.o: $(BOOL_DIR)%.c
-	@echo "🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
+	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-	@echo "🔨 🦔 $(T_BLUE)$(BOLD)$@ $(RESET)$(T_GREEN)created!$(RESET)"
 
 $(OBJ_DIR)%.o: $(CHAR_DIR)%.c
-	@echo "🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
+	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-	@echo "🔨 🦔 $(T_BLUE)$(BOLD)$@ $(RESET)$(T_GREEN)created!$(RESET)"
 
 $(OBJ_DIR)%.o: $(DATA_STRUCTURE_DIR)%.c
-	@echo "🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
+	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-	@echo "🔨 🦔 $(T_BLUE)$(BOLD)$@ $(RESET)$(T_GREEN)created!$(RESET)"
 
 $(OBJ_DIR)%.o: $(FD_DIR)%.c
-	@echo "🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
+	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-	@echo "🔨 🦔 $(T_BLUE)$(BOLD)$@ $(RESET)$(T_GREEN)created!$(RESET)"
 
 $(OBJ_DIR)%.o: $(FT_PRINTF_DIR)%.c
-	@echo "🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
+	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-	@echo "🔨 🦔 $(T_BLUE)$(BOLD)$@ $(RESET)$(T_GREEN)created!$(RESET)"
 
 $(OBJ_DIR)%.o: $(GET_NEXT_LINE_DIR)%.c
-	@echo "🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
+	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-	@echo "🔨 🦔 $(T_BLUE)$(BOLD)$@ $(RESET)$(T_GREEN)created!$(RESET)"
 
 $(OBJ_DIR)%.o: $(MATH_DIR)%.c
-	@echo "🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
+	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-	@echo "🔨 🦔 $(T_BLUE)$(BOLD)$@ $(RESET)$(T_GREEN)created!$(RESET)"
 
 $(OBJ_DIR)%.o: $(MEMORY_DIR)%.c
-	@echo "🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
+	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-	@echo "🔨 🦔 $(T_BLUE)$(BOLD)$@ $(RESET)$(T_GREEN)created!$(RESET)"
 
 $(OBJ_DIR)%.o: $(STRING_DIR)%.c
-	@echo "🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
+	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-	@echo "🔨 🦔 $(T_BLUE)$(BOLD)$@ $(RESET)$(T_GREEN)created!$(RESET)"
 
 # <-- Objects Destruction --> #
 clean:
@@ -247,6 +245,6 @@ debug: fclean
 	@make -s WITH_DEBUG=1
 
 # <-- Targets Declaration --> #
-.PHONY = all clean debug fclean re test
+.PHONY: all clean debug fclean re test
 
 # ========================================================================== #
