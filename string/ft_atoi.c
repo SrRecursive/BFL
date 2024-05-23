@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:54 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/03/24 14:53:18 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/05/23 16:25:00 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	number = 0;
-	while (ft_isdigit(*str) && str)
+	while (ft_isdigit(*str))
 	{
 		number = number * 10 + *str - '0';
 		str++;
