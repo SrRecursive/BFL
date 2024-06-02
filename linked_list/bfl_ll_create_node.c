@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:25 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 12:18:11 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/06/02 12:30:03 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	bfl_ll_initialise(t_ll **linked_list)
 {
-	if (!(*linked_list))
+	if (!linked_list || !(*linked_list))
 		return ;
 	(*linked_list)->content = NULL;
 	(*linked_list)->next = NULL;

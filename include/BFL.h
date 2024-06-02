@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:21 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 11:27:45 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/06/02 13:22:39 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 
 /* ==========================================================================*/
 
-typedef enum e_bool			t_bool;
 typedef struct s_print		t_print;
 typedef struct s_ll			t_ll;
 typedef struct s_dll		t_dll;
@@ -42,23 +41,13 @@ typedef struct s_dll		t_dll;
 /* ==========================================================================*/
 
 /**
- * @brief Custom bool
- *
- */
-enum e_bool
-{
-	FALSE,	/**< 0 */
-	TRUE,	/**< 1 */
-};
-
-/**
  * @brief Custom fd
  */
 enum e_fd
 {
-	STDIN,	/**< 0 */
-	STDOUT,	/**< 1 */
-	STDERR,	/**< 2 */
+	STDIN = 0,	/**< 0 */
+	STDOUT,		/**< 1 */
+	STDERR,		/**< 2 */
 };
 
 /**
@@ -66,7 +55,7 @@ enum e_fd
  */
 enum e_exit_status
 {
-	OK,					/**< 0 */
+	OK = 0,				/**< 0 */
 	KO,					/**< 1 */
 	RIP_MALLOC,			/**< 2 */
 	INVALID_ARGC,		/**< 3 */
@@ -304,21 +293,10 @@ int					bfl_toupper(int character);
 t_ll				*bfl_ll_create_node(void);
 
 /**
- * @brief Add a new node to the linked list.
- *
- * @details This function appends a new node to the linked list.
- *
- * @param linked_list Address of the linked list.
- *
- * @note The caller is responsible for freeing the memory allocated.
- */
-void				bfl_ll_add_node(t_ll **linked_list);
-
-/**
  * @brief Generate a linked list of a specified length.
  *
  * @details This function generates a linked list of the specified length,
- * with each node initialized and linked.
+ * with each node initialised and linked.
  *
  * @param length The length of the linked list to generate.
  *
@@ -328,6 +306,28 @@ void				bfl_ll_add_node(t_ll **linked_list);
  * @note The caller is responsible for freeing the memory allocated.
  */
 t_ll				*bfl_ll_generate(int length);
+
+/**
+ * @brief Add the node at the beginning of the linked list
+ *
+ * @details This function adds the given node to the given linked list.
+ *
+ * @param linked_list The address of the linked_list.
+ * @param node The node to be added at the beginning of the linked list.
+ */
+void				bfl_ll_add_front(t_ll **linked_list, t_ll *node);
+
+/**
+ * @brief Add the node at the end of the linked list
+ *
+ * @details This function adds the given node at the end to the given linked
+ * list. If the linked list is empty, the node will become the first node
+ * of the linked list.
+ *
+ * @param linked_list The address of the linked_list.
+ * @param node The node to be added at the beginning of the linked list.
+ */
+void				bfl_ll_add_back(t_ll **linked_list, t_ll *node);
 
 /**
  * @brief Destroy the content of a linked list node.
@@ -340,14 +340,34 @@ t_ll				*bfl_ll_generate(int length);
 void				bfl_ll_destroy_content(t_ll **linked_list);
 
 /**
- *	@brief Destroy a linked list.
+ * @brief Destroy the given node of the linked list.
  *
- *	@details This function frees the memory for the entire linked list,
- *	including its nodes and content.
+ * @details This function frees the memory for the given node of the
+ * linked list including its content.
  *
- *	@param linked_list Pointer to the head of the linked list.
+ * @param linked_list Pointer to the head of the linked list.
+ */
+void				bfl_ll_destroy_one(t_ll **linked_list);
+
+/**
+ * @brief Destroy a linked list.
+ *
+ * @details This function frees the memory for the entire linked list,
+ * including its nodes and content.
+ *
+ * @param linked_list Pointer to the head of the linked list.
  */
 void				bfl_ll_destroy(t_ll **linked_list);
+
+/**
+ * @brief Get the length of the linked list.
+ *
+ * @param linked_list The linked list.
+ *
+ * @return - The size of the linked list.
+ * @return - 0 If the linked list is empty.
+ */
+size_t				bfl_ll_size(t_ll *linked_list);
 /* ========================================================================= */
 
 /* ========================================================================= */
@@ -633,11 +653,11 @@ void				bfl_memset(void *ptr, int character, size_t bytes);
 void				bfl_bzero(void *ptr, size_t bytes);
 
 /**
- * @brief Allocates memory for a pointer and initializes them with
+ * @brief Allocates memory for a pointer and initialises them with
  * null characters.
  *
  * @details This function allocates n-bytes of memory, each with sizetype
- * size and initializes them with null characters.
+ * size and initialises them with null characters.
  *
  * @param bytes The total number of bytes to allocate memory for.
  * @param size_type The size (in bytes) of each element.

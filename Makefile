@@ -6,7 +6,7 @@
 #    By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 15:47:45 by ribana-b          #+#    #+# Malaga       #
-#    Updated: 2024/06/02 11:21:53 by ribana-b         ###   ########.com       #
+#    Updated: 2024/06/02 13:22:53 by ribana-b         ###   ########.com       #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,7 @@ RM = rm -rf
 # <-- Directories --> #
 BOOL_DIR = bool/
 CHAR_DIR = char/
-DATA_STRUCTURE_DIR = linked_list/
+LINKED_LIST_DIR = linked_list/
 FD_DIR = fd/
 BFL_PRINTF_DIR = bfl_printf/
 GET_NEXT_LINE_DIR = get_next_line/
@@ -91,13 +91,19 @@ BOOL_FILES = bfl_isalnum.c \
 				bfl_islower.c \
 				bfl_isprint.c \
 				bfl_isupper.c \
-				bfl_isxdigit.c
+				bfl_isxdigit.c \
 
 CHAR_FILES = bfl_tolower.c \
-				bfl_toupper.c
+				bfl_toupper.c \
 
-DATA_STRUCTURE_FILES = ll_create.c \
-						ll_destroy.c
+LINKED_LIST_FILES = bfl_ll_create_node.c \
+						bfl_ll_generate.c \
+						bfl_ll_add_back.c \
+						bfl_ll_add_front.c \
+						bfl_ll_destroy_content.c \
+						bfl_ll_destroy_one.c \
+						bfl_ll_destroy.c \
+						bfl_ll_size.c \
 
 FD_FILES = bfl_putaddress_fd.c \
 			bfl_putchar_fd.c \
@@ -106,10 +112,10 @@ FD_FILES = bfl_putaddress_fd.c \
 			bfl_puthexu_fd.c \
 			bfl_putnbr_fd.c \
 			bfl_putstr_fd.c \
-			bfl_putunbr_fd.c
+			bfl_putunbr_fd.c \
 
 BFL_PRINTF_FILES = bfl_printf.c \
-					bfl_fprintf.c
+					bfl_fprintf.c \
 
 GET_NEXT_LINE_FILES = get_next_line.c
 
@@ -126,7 +132,7 @@ MEMORY_FILES = bfl_bzero.c \
 				bfl_memcpy.c \
 				bfl_memmove.c \
 				bfl_memset.c \
-				bfl_realloc.c
+				bfl_realloc.c \
 
 STRING_FILES = bfl_atoi.c \
 				bfl_atol.c \
@@ -145,12 +151,12 @@ STRING_FILES = bfl_atoi.c \
 				bfl_split.c \
 				bfl_splitlen.c \
 				bfl_strrchr.c \
-				bfl_substr.c
+				bfl_substr.c \
 
 # <-- Directories + Files --> #
 BOOL = $(addprefix $(BOOL_DIR), $(BOOL_FILES))
 CHAR = $(addprefix $(CHAR_DIR), $(CHAR_FILES))
-DATA_STRUCTURE = $(addprefix $(DATA_STRUCTURE_DIR), $(DATA_STRUCTURE_FILES))
+LINKED_LIST = $(addprefix $(LINKED_LIST_DIR), $(LINKED_LIST_FILES))
 FD = $(addprefix $(FD_DIR), $(FD_FILES))
 BFL_PRINTF = $(addprefix $(BFL_PRINTF_DIR), $(BFL_PRINTF_FILES))
 GET_NEXT_LINE = $(addprefix $(GET_NEXT_LINE_DIR), $(GET_NEXT_LINE_FILES))
@@ -161,7 +167,7 @@ STRING = $(addprefix $(STRING_DIR), $(STRING_FILES))
 # <-- Objects --> #
 OBJ = $(patsubst $(BOOL_DIR)%.c, $(OBJ_DIR)%.o, $(BOOL)) \
 		$(patsubst $(CHAR_DIR)%.c, $(OBJ_DIR)%.o, $(CHAR)) \
-		$(patsubst $(DATA_STRUCTURE_DIR)%.c, $(OBJ_DIR)%.o, $(DATA_STRUCTURE)) \
+		$(patsubst $(LINKED_LIST_DIR)%.c, $(OBJ_DIR)%.o, $(LINKED_LIST)) \
 		$(patsubst $(FD_DIR)%.c, $(OBJ_DIR)%.o, $(FD)) \
 		$(patsubst $(BFL_PRINTF_DIR)%.c, $(OBJ_DIR)%.o, $(BFL_PRINTF)) \
 		$(patsubst $(GET_NEXT_LINE_DIR)%.c, $(OBJ_DIR)%.o, $(GET_NEXT_LINE)) \
@@ -193,7 +199,7 @@ $(OBJ_DIR)%.o: $(CHAR_DIR)%.c
 	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-$(OBJ_DIR)%.o: $(DATA_STRUCTURE_DIR)%.c
+$(OBJ_DIR)%.o: $(LINKED_LIST_DIR)%.c
 	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
