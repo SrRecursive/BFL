@@ -6,15 +6,14 @@
 #    By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 15:47:45 by ribana-b          #+#    #+# Malaga       #
-#    Updated: 2024/06/02 13:22:53 by ribana-b         ###   ########.com       #
+#    Updated: 2024/06/02 13:44:09 by ribana-b         ###   ########.com       #
 #                                                                              #
 # **************************************************************************** #
 
-# ========================================================================== #
+# @--------------------------------------------------------------------------@ #
+# |                                 Colors                                   | #
+# @--------------------------------------------------------------------------@ #
 
-# <-- Color Library --> #
-
-# <-- Text Color --> #
 T_BLACK = \033[30m
 T_RED = \033[31m
 T_GREEN = \033[32m
@@ -24,13 +23,11 @@ T_MAGENTA = \033[35m
 T_CYAN = \033[36m
 T_WHITE = \033[37m
 
-# <-- Text Style --> #
 BOLD = \033[1m
 ITALIC = \033[3m
 UNDERLINE = \033[4m
 STRIKETHROUGH = \033[5m
 
-# <-- Background Color --> #
 B_BLACK = \033[40m
 B_RED = \033[41m
 B_GREEN = \033[42m
@@ -40,37 +37,34 @@ B_MAGENTA = \033[45m
 B_CYAN = \033[46m
 B_WHITE = \033[47m
 
-# <-- Cursor -- > #
-
 CLEAR_LINE = \033[1F\r\033[2K
 
-# <-- Reset Everything --> #
 RESET = \033[0m
 
-# ========================================================================== #
+# @--------------------------------------------------------------------------@ #
+# |                                Messages                                  | #
+# @--------------------------------------------------------------------------@ #
 
 MSG = @echo "$(CLEAR_LINE)🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
 
-# <-- Library's Name --> #
+# @--------------------------------------------------------------------------@ #
+# |                                 Macros                                   | #
+# @--------------------------------------------------------------------------@ #
+
 NAME = libBFL.a
 
-# <-- Compilation Command --> #
 CC = clang
 
-# <-- Compilation Flags --> #
 ifdef WITH_DEBUG
 CFLAGS = -Wall -Wextra -Werror -ggdb
 else
 CFLAGS = -Wall -Wextra -Werror
 endif
 
-# <-- Include Library -->#
 INCLUDE = -I ./include
 
-# <-- Remove Command -->#
 RM = rm -rf
 
-# <-- Directories --> #
 BOOL_DIR = bool/
 CHAR_DIR = char/
 LINKED_LIST_DIR = linked_list/
@@ -82,7 +76,6 @@ MEMORY_DIR = memory/
 STRING_DIR = string/
 OBJ_DIR = obj/
 
-# <-- Files --> #
 BOOL_FILES = bfl_isalnum.c \
 				bfl_isalpha.c \
 				bfl_isascii.c \
@@ -153,7 +146,6 @@ STRING_FILES = bfl_atoi.c \
 				bfl_strrchr.c \
 				bfl_substr.c \
 
-# <-- Directories + Files --> #
 BOOL = $(addprefix $(BOOL_DIR), $(BOOL_FILES))
 CHAR = $(addprefix $(CHAR_DIR), $(CHAR_FILES))
 LINKED_LIST = $(addprefix $(LINKED_LIST_DIR), $(LINKED_LIST_FILES))
@@ -164,7 +156,6 @@ MATH = $(addprefix $(MATH_DIR), $(MATH_FILES))
 MEMORY = $(addprefix $(MEMORY_DIR), $(MEMORY_FILES))
 STRING = $(addprefix $(STRING_DIR), $(STRING_FILES))
 
-# <-- Objects --> #
 OBJ = $(patsubst $(BOOL_DIR)%.c, $(OBJ_DIR)%.o, $(BOOL)) \
 		$(patsubst $(CHAR_DIR)%.c, $(OBJ_DIR)%.o, $(CHAR)) \
 		$(patsubst $(LINKED_LIST_DIR)%.c, $(OBJ_DIR)%.o, $(LINKED_LIST)) \
@@ -175,22 +166,20 @@ OBJ = $(patsubst $(BOOL_DIR)%.c, $(OBJ_DIR)%.o, $(BOOL)) \
 		$(patsubst $(MEMORY_DIR)%.c, $(OBJ_DIR)%.o, $(MEMORY)) \
 		$(patsubst $(STRING_DIR)%.c, $(OBJ_DIR)%.o, $(STRING))
 
-# ========================================================================== #
+# @--------------------------------------------------------------------------@ #
+# |                                 Targets                                  | #
+# @--------------------------------------------------------------------------@ #
 
-# <-- Main Target --> #
 all: $(NAME)
 
-# <-- Library Creation --> #
 $(NAME): $(OBJ_DIR) $(OBJ)
 	@echo "$(CLEAR_LINE)✅ 🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_GREEN)created successfully$(RESET)"
 	@ar rcs $@ $(OBJ)
 	@echo "✅ 🦔 $(T_MAGENTA)$(BOLD)$(NAME) $(RESET)$(T_GREEN)created successfully$(RESET)"
 
-# <-- Object Directory Creation --> #
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-# <-- Objects Creation --> #
 $(OBJ_DIR)%.o: $(BOOL_DIR)%.c
 	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
@@ -227,30 +216,22 @@ $(OBJ_DIR)%.o: $(STRING_DIR)%.c
 	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-# <-- Objects Destruction --> #
 clean:
 	@$(RM) $(OBJ_DIR)
 	@echo "🗑️  🦔 $(T_YELLOW)$(BOLD)Objects $(RESET)$(T_RED)destroyed successfully$(RESET)"
 
-# <-- Clean Execution + Library Destruction --> #
 fclean: clean
 	@$(RM) $(NAME)
 	@echo "🗑️  🦔 $(T_MAGENTA)$(BOLD)$(NAME) $(RESET)$(T_RED)destroyed successfully$(RESET)"
 
-# <-- Fclean Execution + All Execution --> #
 re: fclean all
 
-# <-- Testers -->
 test: all
 	@$(CC) $(CFLAGS) $(INCLUDE) test/main_test.c $(NAME)
 	@./a.out
 	@rm ./a.out *.txt
 
-# <-- Debug --> #
 debug: fclean
 	@make -s WITH_DEBUG=1
 
-# <-- Targets Declaration --> #
 .PHONY: all clean debug fclean re test
-
-# ========================================================================== #
