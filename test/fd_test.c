@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:47:38 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/03/24 14:53:47 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/06/02 10:53:17 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef union u_address
 	void				*pointer;
 }						t_address;
 
-int	ft_putaddress_fd_test(int fd)
+int	bfl_putaddress_fd_test(int fd)
 {
 	t_address	address;
 	int			x;
@@ -35,19 +35,19 @@ int	ft_putaddress_fd_test(int fd)
 	int			original_stdout;
 
 	address.pointer = str;
-	ft_putaddress_fd(address.number, fd);
+	bfl_putaddress_fd(address.number, fd);
 	address.pointer = &str[1];
-	ft_putaddress_fd(address.number, fd);
+	bfl_putaddress_fd(address.number, fd);
 	address.pointer = &x;
-	ft_putaddress_fd(address.number, fd);
+	bfl_putaddress_fd(address.number, fd);
 	address.pointer = &address;
-	ft_putaddress_fd(address.number, fd);
+	bfl_putaddress_fd(address.number, fd);
 	address.pointer = &pid;
-	ft_putaddress_fd(address.number, fd);
+	bfl_putaddress_fd(address.number, fd);
 	address.pointer = &str[5];
-	ft_putaddress_fd(address.number, fd);
+	bfl_putaddress_fd(address.number, fd);
 	address.pointer = &y;
-	ft_putaddress_fd(address.number, fd);
+	bfl_putaddress_fd(address.number, fd);
 	pid = fork();
 	if (pid < 0)
 		return (1);
@@ -78,15 +78,15 @@ int	ft_putaddress_fd_test(int fd)
 	return (0);
 }
 
-int	ft_putchar_fd_test(int fd)
+int	bfl_putchar_fd_test(int fd)
 {
 	pid_t	pid;
 	int		outfile;
 	int		original_stdout;
 
 	for (int i = 0; i < 255; i++)
-		if (ft_isprint(i))
-			ft_putchar_fd((char)i, fd);
+		if (bfl_isprint(i))
+			bfl_putchar_fd((char)i, fd);
 	pid = fork();
 	if (pid < 0)
 		return (2);
@@ -101,7 +101,7 @@ int	ft_putchar_fd_test(int fd)
 		if (dup2(outfile, STDOUT_FILENO) < 0)
 			return (5);
 		for (int i = 0; i < 255; i++)
-			if (ft_isprint(i))
+			if (bfl_isprint(i))
 				printf("%c", i);
 		close(outfile);
 		if (dup2(STDOUT_FILENO, original_stdout) < 0)
@@ -113,15 +113,15 @@ int	ft_putchar_fd_test(int fd)
 	return (0);
 }
 
-int	ft_putendl_fd_test(int fd)
+int	bfl_putendl_fd_test(int fd)
 {
 	pid_t	pid;
 	int		outfile;
 	int		original_stdout;
 
-	ft_putendl_fd("Hello world", fd);
-	ft_putendl_fd("this is", fd);
-	ft_putendl_fd("my test\n", fd);
+	bfl_putendl_fd("Hello world", fd);
+	bfl_putendl_fd("this is", fd);
+	bfl_putendl_fd("my test\n", fd);
 	pid = fork();
 	if (pid < 0)
 		return (2);
@@ -148,14 +148,14 @@ int	ft_putendl_fd_test(int fd)
 	return (0);
 }
 
-int	ft_puthexl_fd_test(int fd)
+int	bfl_puthexl_fd_test(int fd)
 {
 	pid_t	pid;
 	int		outfile;
 	int		original_stdout;
 
 	for (int i = 0; i < 100000; i++)
-		ft_puthexl_fd(i, fd);
+		bfl_puthexl_fd(i, fd);
 	pid = fork();
 	if (pid < 0)
 		return (2);
@@ -181,14 +181,14 @@ int	ft_puthexl_fd_test(int fd)
 	return (0);
 }
 
-int	ft_puthexu_fd_test(int fd)
+int	bfl_puthexu_fd_test(int fd)
 {
 	pid_t	pid;
 	int		outfile;
 	int		original_stdout;
 
 	for (int i = 0; i < 100000; i++)
-		ft_puthexu_fd(i, fd);
+		bfl_puthexu_fd(i, fd);
 	pid = fork();
 	if (pid < 0)
 		return (2);
@@ -215,14 +215,14 @@ int	ft_puthexu_fd_test(int fd)
 }
 
 
-int	ft_putnbr_fd_test(int fd)
+int	bfl_putnbr_fd_test(int fd)
 {
 	pid_t	pid;
 	int		outfile;
 	int		original_stdout;
 
 	for (int i = 0; i < 100000; i++)
-		ft_putnbr_fd(i, fd);
+		bfl_putnbr_fd(i, fd);
 	pid = fork();
 	if (pid < 0)
 		return (2);
@@ -248,16 +248,16 @@ int	ft_putnbr_fd_test(int fd)
 	return (0);
 }
 
-int	ft_putstr_fd_test(int fd)
+int	bfl_putstr_fd_test(int fd)
 {
 	pid_t	pid;
 	int		outfile;
 	int		original_stdout;
 
-	ft_putstr_fd("Hello world", fd);
-	ft_putstr_fd("How are you?", fd);
-	ft_putstr_fd("This is a simple test", fd);
-	ft_putstr_fd("Not an expert", fd);
+	bfl_putstr_fd("Hello world", fd);
+	bfl_putstr_fd("How are you?", fd);
+	bfl_putstr_fd("This is a simple test", fd);
+	bfl_putstr_fd("Not an expert", fd);
 	pid = fork();
 	if (pid < 0)
 		return (2);
@@ -285,14 +285,14 @@ int	ft_putstr_fd_test(int fd)
 	return (0);
 }
 
-int	ft_putunbr_fd_test(int fd)
+int	bfl_putunbr_fd_test(int fd)
 {
 	pid_t	pid;
 	int		outfile;
 	int		original_stdout;
 
 	for (unsigned int i = 0; i < 100000; i++)
-		ft_putunbr_fd(i, fd);
+		bfl_putunbr_fd(i, fd);
 	pid = fork();
 	if (pid < 0)
 		return (2);

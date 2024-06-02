@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_test.c                                        :+:      :+:    :+:   */
+/*   bfl_sqrt.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:47:35 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 10:22:01 by ribana-b         ###   ########.com      */
+/*   Created: 2024/05/20 13:38:37 by ribana-b          #+#    #+# Malaga      */
+/*   Updated: 2024/06/02 11:07:03 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BFL.h"
-#include <stdio.h>
-#include <ctype.h>
 
-int	bfl_toupper_test(void)
+double	bfl_sqrt(double number)
 {
-	for (int i = -1; i < 1000000; i++)
-		if (bfl_toupper(i) != toupper(i))
-			return (0);
-	return (1);
-}
+	const int	max_iterations = 10;
+	int			iterations;
+	double		sqr_root;
 
-int	bfl_tolower_test(void)
-{
-	for (int i = -1; i < 1000000; i++)
-		if (bfl_tolower(i) != tolower(i))
-			return (0);
-	return (1);
+	if (number < 0)
+		return (-1);
+	iterations = -1;
+	sqr_root = number;
+	while (++iterations < max_iterations)
+		sqr_root = sqr_root - (sqr_root * sqr_root - number) / (2 * sqr_root);
+	return (sqr_root);
 }

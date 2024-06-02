@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ll_destroy.c                                       :+:      :+:    :+:   */
+/*   bfl_strchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:46:26 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 10:14:28 by ribana-b         ###   ########.com      */
+/*   Created: 2024/03/22 15:47:02 by ribana-b          #+#    #+# Malaga      */
+/*   Updated: 2024/06/02 11:19:57 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BFL.h"
 
-void	bfl_ll_destroy_content(t_ll **linked_list)
+char	*bfl_strchr(const char *str, int character)
 {
-	if (!(*linked_list) || !((*linked_list)->content))
-		return ;
-	free((*linked_list)->content);
-	(*linked_list)->content = NULL;
-	return ;
-}
+	size_t	counter;
 
-void	bfl_ll_destroy(t_ll **linked_list)
-{
-	t_ll	*temp;
-
-	if (!(*linked_list))
-		return ;
-	while (*linked_list)
+	if (!str)
+		return (NULL);
+	counter = 0;
+	while (str[counter])
 	{
-		temp = (*linked_list)->next;
-		bfl_ll_destroy_content(linked_list);
-		free(*linked_list);
-		*linked_list = temp;
+		if ((unsigned char)str[counter] == (unsigned char)character)
+			return ((char *)str + counter);
+		counter++;
 	}
-	return ;
+	if ((unsigned char)character == '\0')
+		return ((char *)str + counter);
+	return (NULL);
 }

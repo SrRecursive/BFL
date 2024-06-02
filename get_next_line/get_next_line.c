@@ -6,20 +6,20 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:17 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/03/24 14:41:36 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/06/02 11:04:36 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BFL.h"
 
-static char	*ft_strjoin_gnl(char *str, const char *str2)
+static char	*bfl_strjoin_gnl(char *str, const char *str2)
 {
 	char	*new_str;
 	int		index;
 	int		index2;
 
-	index = ft_strlen(str);
-	index2 = ft_strlen(str2);
+	index = bfl_strlen(str);
+	index2 = bfl_strlen(str2);
 	new_str = (char *)malloc((index + index2 + 1) * sizeof(char));
 	if (!new_str)
 		return (NULL);
@@ -44,7 +44,7 @@ static char	*read_file(char *temp, int fd)
 		return (NULL);
 	}
 	bytes_read = 1;
-	while (bytes_read > 0 && !ft_strchr(temp, '\n'))
+	while (bytes_read > 0 && !bfl_strchr(temp, '\n'))
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
@@ -54,7 +54,7 @@ static char	*read_file(char *temp, int fd)
 			return (NULL);
 		}
 		buffer[bytes_read] = '\0';
-		temp = ft_strjoin_gnl(temp, buffer);
+		temp = bfl_strjoin_gnl(temp, buffer);
 	}
 	free(buffer);
 	return (temp);
@@ -70,7 +70,7 @@ static char	*read_temp(char *temp)
 	index = 0;
 	while (temp[index] != '\n' && temp[index] != '\0')
 		index++;
-	line = (char *)malloc((index + 2) * sizeof(char));
+	line = (char *)malloc((index + temp[index] == '\n' + 1) * sizeof(char));
 	if (!line)
 		return (NULL);
 	index = 0;
@@ -80,7 +80,8 @@ static char	*read_temp(char *temp)
 		index++;
 	}
 	line[index] = temp[index];
-	line[index + 1] = '\0';
+	if (line[index] == '\n')
+		line[index + 1] = '\0';
 	return (line);
 }
 
@@ -116,11 +117,11 @@ char	*get_next_line(int fd)
 	static char	*temp;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE < 1)
+	if (fd < 0 || fd > 1024 || BUFFER_SIZE < 1)
 		return (NULL);
 	if (!temp)
 	{
-		temp = ft_calloc(1, sizeof(char));
+		temp = bfl_calloc(1, sizeof(char));
 		if (!temp)
 			return (NULL);
 	}

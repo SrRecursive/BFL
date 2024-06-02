@@ -6,7 +6,7 @@
 #    By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 15:47:45 by ribana-b          #+#    #+# Malaga       #
-#    Updated: 2024/05/20 13:40:14 by ribana-b         ###   ########.com       #
+#    Updated: 2024/06/02 11:21:53 by ribana-b         ###   ########.com       #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ MSG = @echo "$(CLEAR_LINE)🧩 🦔 $(T_WHITE)$(BOLD)Compiling $<...$(RESET)"
 NAME = libBFL.a
 
 # <-- Compilation Command --> #
-CC = cc
+CC = clang
 
 # <-- Compilation Flags --> #
 ifdef WITH_DEBUG
@@ -75,7 +75,7 @@ BOOL_DIR = bool/
 CHAR_DIR = char/
 DATA_STRUCTURE_DIR = linked_list/
 FD_DIR = fd/
-FT_PRINTF_DIR = ft_printf/
+BFL_PRINTF_DIR = bfl_printf/
 GET_NEXT_LINE_DIR = get_next_line/
 MATH_DIR = math/
 MEMORY_DIR = memory/
@@ -83,76 +83,76 @@ STRING_DIR = string/
 OBJ_DIR = obj/
 
 # <-- Files --> #
-BOOL_FILES = ft_isalnum.c \
-				ft_isalpha.c \
-				ft_isascii.c \
-				ft_isblank.c \
-				ft_isdigit.c \
-				ft_islower.c \
-				ft_isprint.c \
-				ft_isupper.c \
-				ft_isxdigit.c
+BOOL_FILES = bfl_isalnum.c \
+				bfl_isalpha.c \
+				bfl_isascii.c \
+				bfl_isblank.c \
+				bfl_isdigit.c \
+				bfl_islower.c \
+				bfl_isprint.c \
+				bfl_isupper.c \
+				bfl_isxdigit.c
 
-CHAR_FILES = ft_tolower.c \
-				ft_toupper.c
+CHAR_FILES = bfl_tolower.c \
+				bfl_toupper.c
 
 DATA_STRUCTURE_FILES = ll_create.c \
 						ll_destroy.c
 
-FD_FILES = ft_putaddress_fd.c \
-			ft_putchar_fd.c \
-			ft_putendl_fd.c \
-			ft_puthexl_fd.c \
-			ft_puthexu_fd.c \
-			ft_putnbr_fd.c \
-			ft_putstr_fd.c \
-			ft_putunbr_fd.c
+FD_FILES = bfl_putaddress_fd.c \
+			bfl_putchar_fd.c \
+			bfl_putendl_fd.c \
+			bfl_puthexl_fd.c \
+			bfl_puthexu_fd.c \
+			bfl_putnbr_fd.c \
+			bfl_putstr_fd.c \
+			bfl_putunbr_fd.c
 
-FT_PRINTF_FILES = ft_printf.c \
-					ft_fprintf.c
+BFL_PRINTF_FILES = bfl_printf.c \
+					bfl_fprintf.c
 
 GET_NEXT_LINE_FILES = get_next_line.c
 
-MATH_FILES = ft_gcd.c \
-			 ft_lcm.c \
-			 ft_pow.c \
-			 ft_sqrt.c
+MATH_FILES = bfl_gcd.c \
+			 bfl_lcm.c \
+			 bfl_pow.c \
+			 bfl_sqrt.c
 
-MEMORY_FILES = ft_bzero.c \
-				ft_calloc.c \
-				ft_free.c \
-				ft_memchr.c \
-				ft_memcmp.c \
-				ft_memcpy.c \
-				ft_memmove.c \
-				ft_memset.c \
-				ft_realloc.c
+MEMORY_FILES = bfl_bzero.c \
+				bfl_calloc.c \
+				bfl_free.c \
+				bfl_memchr.c \
+				bfl_memcmp.c \
+				bfl_memcpy.c \
+				bfl_memmove.c \
+				bfl_memset.c \
+				bfl_realloc.c
 
-STRING_FILES = ft_atoi.c \
-				ft_atol.c \
-				ft_itoa.c \
-				ft_strchr.c \
-				ft_strdup.c \
-				ft_striteri.c \
-				ft_strjoin.c \
-				ft_strlcat.c \
-				ft_strlcpy.c \
-				ft_strlen.c \
-				ft_strmapi.c \
-				ft_strncmp.c \
-				ft_strncmp.c \
-				ft_strnstr.c \
-				ft_split.c \
-				ft_splitlen.c \
-				ft_strrchr.c \
-				ft_substr.c
+STRING_FILES = bfl_atoi.c \
+				bfl_atol.c \
+				bfl_itoa.c \
+				bfl_strchr.c \
+				bfl_strdup.c \
+				bfl_striteri.c \
+				bfl_strjoin.c \
+				bfl_strlcat.c \
+				bfl_strlcpy.c \
+				bfl_strlen.c \
+				bfl_strmapi.c \
+				bfl_strncmp.c \
+				bfl_strncmp.c \
+				bfl_strnstr.c \
+				bfl_split.c \
+				bfl_splitlen.c \
+				bfl_strrchr.c \
+				bfl_substr.c
 
 # <-- Directories + Files --> #
 BOOL = $(addprefix $(BOOL_DIR), $(BOOL_FILES))
 CHAR = $(addprefix $(CHAR_DIR), $(CHAR_FILES))
 DATA_STRUCTURE = $(addprefix $(DATA_STRUCTURE_DIR), $(DATA_STRUCTURE_FILES))
 FD = $(addprefix $(FD_DIR), $(FD_FILES))
-FT_PRINTF = $(addprefix $(FT_PRINTF_DIR), $(FT_PRINTF_FILES))
+BFL_PRINTF = $(addprefix $(BFL_PRINTF_DIR), $(BFL_PRINTF_FILES))
 GET_NEXT_LINE = $(addprefix $(GET_NEXT_LINE_DIR), $(GET_NEXT_LINE_FILES))
 MATH = $(addprefix $(MATH_DIR), $(MATH_FILES))
 MEMORY = $(addprefix $(MEMORY_DIR), $(MEMORY_FILES))
@@ -163,7 +163,7 @@ OBJ = $(patsubst $(BOOL_DIR)%.c, $(OBJ_DIR)%.o, $(BOOL)) \
 		$(patsubst $(CHAR_DIR)%.c, $(OBJ_DIR)%.o, $(CHAR)) \
 		$(patsubst $(DATA_STRUCTURE_DIR)%.c, $(OBJ_DIR)%.o, $(DATA_STRUCTURE)) \
 		$(patsubst $(FD_DIR)%.c, $(OBJ_DIR)%.o, $(FD)) \
-		$(patsubst $(FT_PRINTF_DIR)%.c, $(OBJ_DIR)%.o, $(FT_PRINTF)) \
+		$(patsubst $(BFL_PRINTF_DIR)%.c, $(OBJ_DIR)%.o, $(BFL_PRINTF)) \
 		$(patsubst $(GET_NEXT_LINE_DIR)%.c, $(OBJ_DIR)%.o, $(GET_NEXT_LINE)) \
 		$(patsubst $(MATH_DIR)%.c, $(OBJ_DIR)%.o, $(MATH)) \
 		$(patsubst $(MEMORY_DIR)%.c, $(OBJ_DIR)%.o, $(MEMORY)) \
@@ -201,7 +201,7 @@ $(OBJ_DIR)%.o: $(FD_DIR)%.c
 	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-$(OBJ_DIR)%.o: $(FT_PRINTF_DIR)%.c
+$(OBJ_DIR)%.o: $(BFL_PRINTF_DIR)%.c
 	$(MSG)
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 

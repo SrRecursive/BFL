@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ll_destroy.c                                       :+:      :+:    :+:   */
+/*   bfl_strncmp.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:46:26 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 10:14:28 by ribana-b         ###   ########.com      */
+/*   Created: 2024/03/22 15:47:16 by ribana-b          #+#    #+# Malaga      */
+/*   Updated: 2024/06/02 11:20:46 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BFL.h"
 
-void	bfl_ll_destroy_content(t_ll **linked_list)
+int	bfl_strncmp(const char *str, const char *str2, size_t bytes)
 {
-	if (!(*linked_list) || !((*linked_list)->content))
-		return ;
-	free((*linked_list)->content);
-	(*linked_list)->content = NULL;
-	return ;
-}
+	int	index;
 
-void	bfl_ll_destroy(t_ll **linked_list)
-{
-	t_ll	*temp;
-
-	if (!(*linked_list))
-		return ;
-	while (*linked_list)
+	if (!str || !str2)
+		return (-1);
+	index = 0;
+	while (bytes-- && (str[index] || str2[index]))
 	{
-		temp = (*linked_list)->next;
-		bfl_ll_destroy_content(linked_list);
-		free(*linked_list);
-		*linked_list = temp;
+		if (str[index] != str2[index])
+			return ((unsigned char)str[index] - (unsigned char)str2[index]);
+		index++;
 	}
-	return ;
+	return (0);
 }

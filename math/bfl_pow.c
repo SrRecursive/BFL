@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ll_destroy.c                                       :+:      :+:    :+:   */
+/*   bfl_pow.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:46:26 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 10:14:28 by ribana-b         ###   ########.com      */
+/*   Created: 2024/03/22 15:46:33 by ribana-b          #+#    #+# Malaga      */
+/*   Updated: 2024/06/02 11:07:02 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BFL.h"
 
-void	bfl_ll_destroy_content(t_ll **linked_list)
+double	bfl_pow(double number, int exponent)
 {
-	if (!(*linked_list) || !((*linked_list)->content))
-		return ;
-	free((*linked_list)->content);
-	(*linked_list)->content = NULL;
-	return ;
-}
+	double	temp;
 
-void	bfl_ll_destroy(t_ll **linked_list)
-{
-	t_ll	*temp;
-
-	if (!(*linked_list))
-		return ;
-	while (*linked_list)
+	temp = number;
+	if (exponent == 0)
+		return (1);
+	else if (exponent > 0)
+		while (exponent-- > 1)
+			number *= temp;
+	else
 	{
-		temp = (*linked_list)->next;
-		bfl_ll_destroy_content(linked_list);
-		free(*linked_list);
-		*linked_list = temp;
+		while (exponent++ < -1)
+			number *= temp;
+		number = 1 / number;
 	}
-	return ;
+	return (number);
 }

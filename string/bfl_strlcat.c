@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ll_destroy.c                                       :+:      :+:    :+:   */
+/*   bfl_strlcat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:46:26 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 10:14:28 by ribana-b         ###   ########.com      */
+/*   Created: 2024/03/22 15:47:10 by ribana-b          #+#    #+# Malaga      */
+/*   Updated: 2024/06/02 11:19:59 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BFL.h"
 
-void	bfl_ll_destroy_content(t_ll **linked_list)
+size_t	bfl_strlcat(char *str, const char *str2, size_t bytes)
 {
-	if (!(*linked_list) || !((*linked_list)->content))
-		return ;
-	free((*linked_list)->content);
-	(*linked_list)->content = NULL;
-	return ;
-}
+	size_t	index;
+	size_t	index2;
 
-void	bfl_ll_destroy(t_ll **linked_list)
-{
-	t_ll	*temp;
-
-	if (!(*linked_list))
-		return ;
-	while (*linked_list)
+	if (!str || !str2)
+		return (0);
+	index = bfl_strlen(str);
+	if (index >= bytes)
+		return (bfl_strlen(str2) + bytes);
+	index2 = 0;
+	while (str2[index2] && (index + index2) < (bytes - 1))
 	{
-		temp = (*linked_list)->next;
-		bfl_ll_destroy_content(linked_list);
-		free(*linked_list);
-		*linked_list = temp;
+		str[index + index2] = str2[index2];
+		index2++;
 	}
-	return ;
+	str[index + index2] = '\0';
+	return (index + index2);
 }

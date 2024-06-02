@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_test.c                                        :+:      :+:    :+:   */
+/*   bfl_strdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:47:35 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 10:22:01 by ribana-b         ###   ########.com      */
+/*   Created: 2024/03/22 15:47:04 by ribana-b          #+#    #+# Malaga      */
+/*   Updated: 2024/06/02 11:19:58 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BFL.h"
-#include <stdio.h>
-#include <ctype.h>
 
-int	bfl_toupper_test(void)
+char	*bfl_strdup(const char *str)
 {
-	for (int i = -1; i < 1000000; i++)
-		if (bfl_toupper(i) != toupper(i))
-			return (0);
-	return (1);
-}
+	char	*new_str;
+	int		counter;
 
-int	bfl_tolower_test(void)
-{
-	for (int i = -1; i < 1000000; i++)
-		if (bfl_tolower(i) != tolower(i))
-			return (0);
-	return (1);
+	if (!str)
+		return (NULL);
+	counter = bfl_strlen(str);
+	new_str = (char *)malloc((counter + 1) * sizeof(char));
+	if (!new_str)
+		return (NULL);
+	new_str[counter] = '\0';
+	while (counter-- > 0)
+		new_str[counter] = str[counter];
+	return (new_str);
 }

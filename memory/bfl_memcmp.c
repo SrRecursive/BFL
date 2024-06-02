@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ll_destroy.c                                       :+:      :+:    :+:   */
+/*   bfl_memcmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:46:26 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 10:14:28 by ribana-b         ###   ########.com      */
+/*   Created: 2024/03/22 15:46:44 by ribana-b          #+#    #+# Malaga      */
+/*   Updated: 2024/06/02 11:25:46 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BFL.h"
 
-void	bfl_ll_destroy_content(t_ll **linked_list)
+int	bfl_memcmp(const void *ptr, const void *ptr2, size_t bytes)
 {
-	if (!(*linked_list) || !((*linked_list)->content))
-		return ;
-	free((*linked_list)->content);
-	(*linked_list)->content = NULL;
-	return ;
-}
+	unsigned char	*temp;
+	unsigned char	*temp2;
 
-void	bfl_ll_destroy(t_ll **linked_list)
-{
-	t_ll	*temp;
-
-	if (!(*linked_list))
-		return ;
-	while (*linked_list)
+	if (!ptr || !ptr2)
+		return (-1);
+	temp = (unsigned char *)ptr;
+	temp2 = (unsigned char *)ptr2;
+	while (bytes--)
 	{
-		temp = (*linked_list)->next;
-		bfl_ll_destroy_content(linked_list);
-		free(*linked_list);
-		*linked_list = temp;
+		if (*(unsigned char *)temp != *(unsigned char *)temp2)
+			return (*temp - *temp2);
+		temp++;
+		temp2++;
 	}
-	return ;
+	return (0);
 }

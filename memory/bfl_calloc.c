@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_test.c                                        :+:      :+:    :+:   */
+/*   bfl_calloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:47:35 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 10:22:01 by ribana-b         ###   ########.com      */
+/*   Created: 2024/03/22 15:46:37 by ribana-b          #+#    #+# Malaga      */
+/*   Updated: 2024/06/02 11:10:48 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BFL.h"
-#include <stdio.h>
-#include <ctype.h>
 
-int	bfl_toupper_test(void)
+void	*bfl_calloc(size_t bytes, size_t type_size)
 {
-	for (int i = -1; i < 1000000; i++)
-		if (bfl_toupper(i) != toupper(i))
-			return (0);
-	return (1);
-}
+	void	*ptr;
 
-int	bfl_tolower_test(void)
-{
-	for (int i = -1; i < 1000000; i++)
-		if (bfl_tolower(i) != tolower(i))
-			return (0);
-	return (1);
+	ptr = malloc(bytes * type_size);
+	if (!ptr)
+		return (NULL);
+	bfl_bzero(ptr, bytes * type_size);
+	return (ptr);
 }
