@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:47:05 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 11:19:58 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/06/02 12:51:07 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void	bfl_striteri(char *str, void (*f)(unsigned int, char *))
 		f(counter, str + counter);
 		counter++;
 	}
-	return ;
 }

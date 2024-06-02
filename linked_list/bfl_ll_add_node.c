@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ll_destroy.c                                       :+:      :+:    :+:   */
+/*   bfl_ll_add_node.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:46:26 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 10:14:28 by ribana-b         ###   ########.com      */
+/*   Created: 2024/06/02 12:17:29 by ribana-b          #+#    #+# Malaga      */
+/*   Updated: 2024/06/02 12:17:46 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BFL.h"
 
-void	bfl_ll_destroy_content(t_ll **linked_list)
+void	bfl_ll_add_node(t_ll **linked_list)
 {
-	if (!(*linked_list) || !((*linked_list)->content))
-		return ;
-	free((*linked_list)->content);
-	(*linked_list)->content = NULL;
-	return ;
-}
-
-void	bfl_ll_destroy(t_ll **linked_list)
-{
-	t_ll	*temp;
+	t_ll	*newnode;
 
 	if (!(*linked_list))
 		return ;
-	while (*linked_list)
-	{
-		temp = (*linked_list)->next;
-		bfl_ll_destroy_content(linked_list);
-		free(*linked_list);
-		*linked_list = temp;
-	}
-	return ;
+	newnode = bfl_ll_create_node();
+	if (!newnode)
+		return ;
+	(*linked_list)->next = newnode;
 }

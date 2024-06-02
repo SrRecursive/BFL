@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:10 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 10:57:54 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/06/02 12:48:59 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static void	bfl_print_format(int fd, const char *str, va_list arg,
 	else if (*str == 'p')
 		info->success += bfl_putaddress_fd(va_arg(arg, unsigned long), fd);
 	info->bytes += info->success;
-	return ;
 }
 
 static void	initialise_info(t_print *info)

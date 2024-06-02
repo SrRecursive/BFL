@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:57 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 11:19:50 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/06/02 12:51:20 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static void	number_to_string(char *str, int number, size_t length)
 		str[length] = temp % 10 + '0';
 		temp /= 10;
 	}
-	return ;
 }
 
 char	*bfl_itoa(int number)

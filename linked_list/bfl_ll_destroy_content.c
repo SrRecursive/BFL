@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bfl_bzero.c                                        :+:      :+:    :+:   */
+/*   bfl_ll_destroy_content.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 15:46:36 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 12:51:38 by ribana-b         ###   ########.com      */
+/*   Created: 2024/06/02 12:14:57 by ribana-b          #+#    #+# Malaga      */
+/*   Updated: 2024/06/02 12:15:24 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BFL.h"
 
-void	bfl_bzero(void *ptr, size_t bytes)
+void	bfl_ll_destroy_content(t_ll **linked_list)
 {
-	char	*temp;
-
-	if (!ptr)
+	if (!(*linked_list) || !((*linked_list)->content))
 		return ;
-	temp = ptr;
-	while (bytes--)
-		temp[bytes] = 0;
+	free((*linked_list)->content);
+	(*linked_list)->content = NULL;
+	return ;
 }
