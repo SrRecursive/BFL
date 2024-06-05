@@ -6,7 +6,7 @@
 #    By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 15:47:45 by ribana-b          #+#    #+# Malaga       #
-#    Updated: 2024/06/02 13:44:09 by ribana-b         ###   ########.com       #
+#    Updated: 2024/06/05 10:50:22 by ribana-b         ###   ########.com       #
 #                                                                              #
 # **************************************************************************** #
 
@@ -130,6 +130,7 @@ MEMORY_FILES = bfl_bzero.c \
 STRING_FILES = bfl_atoi.c \
 				bfl_atol.c \
 				bfl_itoa.c \
+				bfl_strbuild.c \
 				bfl_strchr.c \
 				bfl_strdup.c \
 				bfl_striteri.c \

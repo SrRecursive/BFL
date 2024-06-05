@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:21 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 13:37:06 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/06/05 11:20:25 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1105,5 +1105,24 @@ char				**bfl_split(const char *str, char character);
  * and ends with a NULL pointer.
  */
 size_t				bfl_splitlen(char **split);
+
+/**
+ * @brief Build a string joining n-strings.
+ *
+ * @details This function builds a string by joining multiple strings
+ * in a single one.
+ *
+ * @param string_amount The total amount of strings (str + args).
+ * @param str The first string.
+ * @param ... Variable arguments corresponding to the strings to
+ * be used for the string building.
+ *
+ * @return - The new string created by joining the strings.
+ * @return - NULL if fails allocating memory for the new string.
+ *
+ * @note If string_amount is incorrect, undefined behaviour is expected.
+ * @note The caller is responsible for freeing the memory allocated.
+ */
+char				*bfl_strbuild(int string_amount, char *str, ...);
 
 #endif
