@@ -6,7 +6,7 @@
 #    By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 15:47:45 by ribana-b          #+#    #+# Malaga       #
-#    Updated: 2024/06/05 10:50:22 by ribana-b         ###   ########.com       #
+#    Updated: 2024/06/08 01:22:56 by ribana-b         ###   ########.com       #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,6 +129,7 @@ MEMORY_FILES = bfl_bzero.c \
 
 STRING_FILES = bfl_atoi.c \
 				bfl_atol.c \
+				bfl_atof.c \
 				bfl_itoa.c \
 				bfl_strbuild.c \
 				bfl_strchr.c \
@@ -141,6 +142,7 @@ STRING_FILES = bfl_atoi.c \
 				bfl_strmapi.c \
 				bfl_strncmp.c \
 				bfl_strncmp.c \
+				bfl_strcmp.c \
 				bfl_strnstr.c \
 				bfl_split.c \
 				bfl_splitlen.c \
@@ -180,6 +182,7 @@ $(NAME): $(OBJ_DIR) $(OBJ)
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
+	@echo
 
 $(OBJ_DIR)%.o: $(BOOL_DIR)%.c
 	$(MSG)

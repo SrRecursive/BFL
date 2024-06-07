@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:21 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/05 11:20:25 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/06/08 01:18:50 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -810,11 +810,29 @@ char				*bfl_strjoin(const char *str, const char *str2);
  * @param bytes Number of characters to compare.
  *
  * @return - An integer greater than, equal to, or less than 0 if the
- * first bytes characters of str2, respectively.
+ * first bytes characters of str2 is found, respectively to be less than,
+ * to match, or be greater than str.
  * @return - -1 if either str or str2 is NULL.
  */
 int					bfl_strncmp(const char *str, const char *str2,
 						size_t bytes);
+
+/**
+ * @brief Compare the characters of two strings.
+ *
+ * @details This function compares characters of the strings str and str2.
+ * The comparison is case-sensitive, and the result is based on the
+ * difference between the ASCII values of the characters at the
+ * corresponding positions in the strings.
+ *
+ * @param str Pointer to the first string to be compared.
+ * @param str2 Pointer to the second string to be compared.
+ *
+ * @return - An integer greater than, equal to, or less than 0 if a
+ * character in str2 is found, respectively to be less than, to
+ * match, or be greater than str.
+ */
+int					bfl_strcmp(const char *str, const char *str2);
 
 /**
  * @brief Convert a string to an integer.
@@ -1065,6 +1083,21 @@ void				bfl_striteri(char *str, void (*f)(unsigned int, char *));
  * be freed by the caller when no longer needed.
  */
 char				*bfl_itoa(int number);
+
+/**
+ * @brief Convert a string to a double.
+ *
+ * @details This function converts the initial portion of the string str
+ * to its double representation. The conversion stops when the first
+ * non-digit character is encountered. Leading white-space characters
+ * are skipped, and the sign of the number is determined by an optional '+'
+ * or '-' prefix.
+ *
+ * @param str Pointer to the string to be converted.
+ *
+ * @return - The converted double value.
+ */
+double	bfl_atof(const char *str);
 
 /**
  * @brief Splits a string into an array of substrings based on a
