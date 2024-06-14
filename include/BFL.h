@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:21 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/14 14:39:08 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/06/14 18:07:16 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -330,7 +330,7 @@ void				bfl_ll_add_back(t_ll **linked_list, t_ll *node);
  * @note It is recommended to use bfl_free as the del function.
  */
 void				bfl_ll_destroy_content(t_ll *linked_list,
-		void *(*del)(void *, size_t), size_t asterisk_amount);
+						void *(*del)(void *, size_t), size_t asterisk_amount);
 
 /**
  * @brief Destroy the given node of the linked list.
@@ -345,7 +345,7 @@ void				bfl_ll_destroy_content(t_ll *linked_list,
  * @note It is recommended to use bfl_free as the del function.
  */
 void				bfl_ll_destroy_one(t_ll **linked_list,
-		void *(*del)(void *, size_t), size_t asterisk_amount);
+						void *(*del)(void *, size_t), size_t asterisk_amount);
 
 /**
  * @brief Destroy a linked list.
@@ -360,7 +360,7 @@ void				bfl_ll_destroy_one(t_ll **linked_list,
  * @note It is recommended to use bfl_free as the del function.
  */
 void				bfl_ll_destroy(t_ll **linked_list,
-		void *(*del)(void *, size_t), size_t asterisk_amount);
+						void *(*del)(void *, size_t), size_t asterisk_amount);
 
 /**
  * @brief Get the length of the linked list.
@@ -1112,7 +1112,7 @@ char				*bfl_itoa(int number);
  *
  * @return - The converted double value.
  */
-double	bfl_atof(const char *str);
+double				bfl_atof(const char *str);
 
 /**
  * @brief Splits a string into an array of substrings based on a
