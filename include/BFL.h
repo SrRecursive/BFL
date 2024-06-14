@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:21 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/08 01:18:50 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/06/14 14:39:08 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -324,8 +324,13 @@ void				bfl_ll_add_back(t_ll **linked_list, t_ll *node);
  * of a linked list node.
  *
  * @param linked_list Address of the linked list node.
+ * @param del Pointer function to free the content.
+ * @param asterisk_amount Parameter needed for the del function.
+ *
+ * @note It is recommended to use bfl_free as the del function.
  */
-void				bfl_ll_destroy_content(t_ll **linked_list);
+void				bfl_ll_destroy_content(t_ll *linked_list,
+		void *(*del)(void *, size_t), size_t asterisk_amount);
 
 /**
  * @brief Destroy the given node of the linked list.
@@ -334,8 +339,13 @@ void				bfl_ll_destroy_content(t_ll **linked_list);
  * linked list including its content.
  *
  * @param linked_list Pointer to the head of the linked list.
+ * @param del Pointer function to free the content.
+ * @param asterisk_amount Parameter needed for the del function.
+ *
+ * @note It is recommended to use bfl_free as the del function.
  */
-void				bfl_ll_destroy_one(t_ll **linked_list);
+void				bfl_ll_destroy_one(t_ll **linked_list,
+		void *(*del)(void *, size_t), size_t asterisk_amount);
 
 /**
  * @brief Destroy a linked list.
@@ -344,8 +354,13 @@ void				bfl_ll_destroy_one(t_ll **linked_list);
  * including its nodes and content.
  *
  * @param linked_list Pointer to the head of the linked list.
+ * @param del Pointer function to free the content.
+ * @param asterisk_amount Parameter needed for the del function.
+ *
+ * @note It is recommended to use bfl_free as the del function.
  */
-void				bfl_ll_destroy(t_ll **linked_list);
+void				bfl_ll_destroy(t_ll **linked_list,
+		void *(*del)(void *, size_t), size_t asterisk_amount);
 
 /**
  * @brief Get the length of the linked list.

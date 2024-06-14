@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 12:17:58 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 12:38:36 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/06/14 14:41:58 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_ll	*bfl_ll_generate(int length)
 		bfl_ll_add_node(&temp);
 		if (!temp->next)
 		{
-			bfl_ll_destroy(&linked_list);
+			bfl_ll_destroy(&linked_list, &bfl_free, 1);
 			return (NULL);
 		}
 		temp = temp->next;
