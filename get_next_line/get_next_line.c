@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:17 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/02 11:04:36 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/06/15 17:37:20 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static char	*read_temp(char *temp)
 	index = 0;
 	while (temp[index] != '\n' && temp[index] != '\0')
 		index++;
-	line = (char *)malloc((index + temp[index] == '\n' + 1) * sizeof(char));
+	line = (char *)malloc((index + (temp[index] == '\n') + 1) * sizeof(char));
 	if (!line)
 		return (NULL);
 	index = 0;
