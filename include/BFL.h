@@ -6,7 +6,7 @@
 /*   By: ribana-b <ribana-b@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:46:21 by ribana-b          #+#    #+# Malaga      */
-/*   Updated: 2024/06/14 18:07:16 by ribana-b         ###   ########.com      */
+/*   Updated: 2024/07/10 13:58:11 by ribana-b         ###   ########.com      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ typedef struct s_dll		t_dll;
  */
 enum e_fd
 {
-	STDIN = 0,	/**< 0 */
-	STDOUT,		/**< 1 */
-	STDERR,		/**< 2 */
+	BFL_STDIN,	/**< 0 */
+	BFL_STDOUT,		/**< 1 */
+	BFL_STDERR,		/**< 2 */
 };
 
 /**
@@ -51,11 +51,11 @@ enum e_fd
  */
 enum e_exit_status
 {
-	OK = 0,				/**< 0 */
-	KO,					/**< 1 */
-	RIP_MALLOC,			/**< 2 */
-	INVALID_ARGC,		/**< 3 */
-	EXIT_STATUS_LIMIT,	/**< Amount of enums */
+	BFL_OK,				/**< 0 */
+	BFL_KO,					/**< 1 */
+	BFL_RIP_MALLOC,			/**< 2 */
+	BFL_INVALID_ARGC,		/**< 3 */
+	BFL_EXIT_STATUS_LIMIT,	/**< Amount of enums */
 };
 
 /* @------------------------------------------------------------------------@ */

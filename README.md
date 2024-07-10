@@ -51,7 +51,7 @@ gcc main.c -L./BFL -lBFL -I BFL/include
 > int main(int argc, char **argv)
 > {
 >     ft_printf("Hello World\n");
->     return (OK);
+>     return (BFL_OK);
 > }
 > ```
 
